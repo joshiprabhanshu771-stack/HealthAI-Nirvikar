@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthAI — Your Health, Smarter and Simpler</title>
+  <meta name="description" content="AI-powered healthcare platform providing symptom checking, medical guidance, local healthcare finder, and wellness resources.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="user_dashboard.css">
+</head>
+<body>
+
+  <!-- ==================== 1. TOP NAVBAR ==================== -->
+  <header class="navbar-header">
+    <nav class="navbar container">
+      <a href="#home" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+        <span class="logo-text">Health<span class="logo-accent">AI</span></span>
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars icon-open"></i>
+        <i class="fa-solid fa-xmark icon-close"></i>
+      </label>
+
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="ai_health.html" class="nav-link">AI Health</a></li>
+        <li><a href="#diseases" class="nav-link">Diseases</a></li>
+        <li><a href="#wellness" class="nav-link">Health & Wellness</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#schemes" class="nav-link">Resources</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <a href="#login" class="btn btn-tertiary">Log In</a>
+        <a href="#signup" class="btn btn-primary">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section id="home" class="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="badge">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Next-Gen Healthcare Guidance
+          </div>
+          <h1 class="hero-title">Your Health, <span class="text-gradient">Smarter</span> and Simpler</h1>
+          <p class="hero-subtitle">
+            Get AI-powered health guidance, trusted medical information and essential healthcare resources — all in one accessible place.
+          </p>
+          <div class="hero-actions">
+            <a href="#symptom-checker" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-stethoscope"></i> Check Your Symptoms
+            </a>
+            <a href="#ai-assistant" class="btn btn-secondary btn-lg">
+              <i class="fa-solid fa-comments"></i> Talk to AI Assistant
+            </a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>AI-Powered Safety</span>
+            </div>
+            <div class="trust-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Trusted Medical Info</span>
+            </div>
+            <div class="trust-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Available 24/7</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <div class="hero-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Doctor providing digital healthcare assistance on tablet" class="hero-img">
+            </div>
+            <div class="floating-badge badge-top">
+              <i class="fa-solid fa-heart-pulse text-teal"></i>
+              <div>
+                <strong>Heart Rate Normal</strong>
+                <small>72 BPM · Optimal</small>
+              </div>
+            </div>
+            <div class="floating-badge badge-bottom">
+              <i class="fa-solid fa-robot text-blue"></i>
+              <div>
+                <strong>AI Health Check</strong>
+                <small>Analysis Ready</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. QUICK HEALTH SERVICES ==================== -->
+    <section id="services" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Key Features</span>
+          <h2 class="section-title">Healthcare at Your Fingertips</h2>
+          <p class="section-description">Essential modern medical tools designed for instant access and peace of mind.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- Card A -->
+          <div class="service-card">
+            <div class="service-icon icon-teal">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3>AI Symptom Checker</h3>
+            <p>Understand your symptoms instantly with AI-powered health risk evaluations.</p>
+            <a href="#symptom-checker" class="service-link">Check Symptoms <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Card B -->
+          <div class="service-card">
+            <div class="service-icon icon-blue">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3>Nearby Healthcare</h3>
+            <p>Find hospitals, clinics, pharmacies, laboratories and blood banks nearby.</p>
+            <a href="#nearby" class="service-link">Find Nearby <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Card C -->
+          <div class="service-card">
+            <div class="service-icon icon-teal">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <h3>Voice Assistant</h3>
+            <p>Access critical healthcare information and ask questions using your voice.</p>
+            <a href="#ai-assistant" class="service-link">Use Voice <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Card D -->
+          <div class="service-card">
+            <div class="service-icon icon-blue">
+              <i class="fa-solid fa-weight-scale"></i>
+            </div>
+            <h3>BMI Calculator</h3>
+            <p>Calculate your Body Mass Index and understand your ideal target categories.</p>
+            <a href="#bmi" class="service-link">Calculate BMI <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Card E -->
+          <div class="service-card">
+            <div class="service-icon icon-teal">
+              <i class="fa-solid fa-kit-medical"></i>
+            </div>
+            <h3>First Aid Guide</h3>
+            <p>Quick access to verified step-by-step first-aid protocols during emergencies.</p>
+            <a href="#first-aid" class="service-link">View Guide <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Card F -->
+          <div class="service-card">
+            <div class="service-icon icon-blue">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <h3>Blood Donation</h3>
+            <p>Locate blood banks, emergency donors, and organize critical blood drives.</p>
+            <a href="#blood-donation" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. AI HEALTH ASSISTANT SECTION ==================== -->
+    <section id="ai-assistant" class="section">
+      <div class="container">
+        <div class="ai-wrapper">
+          <div class="ai-info">
+            <span class="section-tag">24/7 Intelligent Support</span>
+            <h2 class="section-title">Meet Your AI Health Assistant</h2>
+            <p class="section-description">
+              Ask health-related questions, describe your symptoms, or use voice commands to get personalized health guidance anytime.
+            </p>
+            <div class="ai-feature-list">
+              <div class="ai-feature-item">
+                <i class="fa-solid fa-bolt"></i> Instant real-time health insights
+              </div>
+              <div class="ai-feature-item">
+                <i class="fa-solid fa-shield-cat"></i> Private and securely encrypted
+              </div>
+              <div class="ai-feature-item">
+                <i class="fa-solid fa-language"></i> Multi-language comprehension
+              </div>
+            </div>
+            <div class="ai-actions">
+              <a href="#symptom-checker" class="btn btn-primary">Start Symptom Check</a>
+              <a href="#ai-chat-interface" class="btn btn-secondary">Ask AI Now</a>
+            </div>
+          </div>
+
+          <div class="ai-chat-card" id="ai-chat-interface">
+            <div class="chat-header">
+              <div class="avatar">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div>
+                <h4>HealthAI Clinical Assistant</h4>
+                <span class="status-online"><i class="fa-solid fa-circle"></i> Active & Ready</span>
+              </div>
+            </div>
+
+            <div class="chat-body">
+              <div class="chat-bubble ai-msg">
+                <p>Hello! How can I help you with your health today?</p>
+                <span class="msg-time">10:40 AM</span>
+              </div>
+              <div class="chat-bubble user-msg">
+                <p>I have been feeling tired for the past 3 days and have a mild headache.</p>
+                <span class="msg-time">10:41 AM</span>
+              </div>
+              <div class="chat-bubble ai-msg">
+                <p>I understand. Fatigue combined with a headache can stem from dehydration, stress, lack of sleep, or an early viral response. Are you experiencing any light sensitivity or neck stiffness?</p>
+                <span class="msg-time">10:41 AM</span>
+              </div>
+            </div>
+
+            <div class="chat-footer">
+              <div class="chat-input-wrapper">
+                <input type="text" placeholder="Describe how you are feeling..." aria-label="Chat input">
+                <button class="chat-btn mic-btn" aria-label="Use voice"><i class="fa-solid fa-microphone"></i></button>
+                <button class="chat-btn send-btn" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+              <p class="disclaimer">
+                <i class="fa-solid fa-circle-info"></i> AI-generated information is for educational purposes and does not replace professional medical advice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. AI SYMPTOM CHECKER SECTION ==================== -->
+    <section id="symptom-checker" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Interactive Diagnostic Tool</span>
+          <h2 class="section-title">Understand Your Symptoms</h2>
+          <p class="section-description">Select or type your current symptoms for an initial structured health assessment.</p>
+        </div>
+
+        <div class="symptom-card">
+          <div class="symptom-input-group">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Type a symptom (e.g., headache, fever, fatigue)..." aria-label="Search symptom">
+            </div>
+            <button class="btn btn-primary">Analyze Symptoms</button>
+          </div>
+
+          <div class="symptom-chips">
+            <span class="chip-label">Common Symptoms:</span>
+            <button class="chip active"><i class="fa-solid fa-plus"></i> Fever</button>
+            <button class="chip active"><i class="fa-solid fa-plus"></i> Headache</button>
+            <button class="chip"><i class="fa-solid fa-plus"></i> Cough</button>
+            <button class="chip active"><i class="fa-solid fa-plus"></i> Fatigue</button>
+            <button class="chip"><i class="fa-solid fa-plus"></i> Stomach Pain</button>
+            <button class="chip"><i class="fa-solid fa-plus"></i> Sore Throat</button>
+          </div>
+
+          <!-- Sample Result Area -->
+          <div class="symptom-results">
+            <div class="result-header">
+              <h3><i class="fa-solid fa-chart-pie text-teal"></i> Preliminary Analysis Dashboard</h3>
+              <span class="severity-badge badge-moderate">Moderate Severity</span>
+            </div>
+
+            <div class="grid grid-2">
+              <div class="result-block">
+                <h4><i class="fa-solid fa-notes-medical"></i> Possible Conditions</h4>
+                <ul class="condition-list">
+                  <li>
+                    <div>
+                      <strong>Tension Headache & Dehydration</strong>
+                      <small>High match probability based on selected symptoms</small>
+                    </div>
+                    <span class="percent">78%</span>
+                  </li>
+                  <li>
+                    <div>
+                      <strong>Viral Syndrome / Mild Flu</strong>
+                      <small>Moderate match probability</small>
+                    </div>
+                    <span class="percent">45%</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="result-block">
+                <h4><i class="fa-solid fa-list-check"></i> Recommended Next Steps</h4>
+                <ol class="steps-list">
+                  <li>Increase fluid intake (water, electrolytes) immediately.</li>
+                  <li>Rest in a quiet, dimly lit room for 60-90 minutes.</li>
+                  <li>Monitor temperature every 4 hours.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="doctor-alert">
+              <i class="fa-solid fa-user-doctor"></i>
+              <div>
+                <strong>When to Consult a Doctor Immediately:</strong>
+                <p>If your headache becomes sudden and severe ("thunderclap"), or is accompanied by high fever (>102°F), stiff neck, confusion, or difficulty speaking.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. DISEASE INFORMATION SECTION ==================== -->
+    <section id="diseases" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Medical Library</span>
+          <h2 class="section-title">Explore Health Conditions</h2>
+          <p class="section-description">Comprehensive, physician-reviewed information on broad medical categories.</p>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="category-card">
+            <div class="cat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h3>Heart Health</h3>
+            <p>Hypertension, coronary artery disease, arrhythmia, and preventive cardiology.</p>
+            <a href="#" class="cat-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="category-card">
+            <div class="cat-icon"><i class="fa-solid fa-vial"></i></div>
+            <h3>Diabetes</h3>
+            <p>Type 1, Type 2, gestational diabetes management, blood sugar tracking, and insulin care.</p>
+            <a href="#" class="cat-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="category-card">
+            <div class="cat-icon"><i class="fa-solid fa-lungs"></i></div>
+            <h3>Respiratory</h3>
+            <p>Asthma, COPD, pneumonia, seasonal allergies, and pulmonary wellness.</p>
+            <a href="#" class="cat-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="category-card">
+            <div class="cat-icon"><i class="fa-solid fa-virus"></i></div>
+            <h3>Infectious Diseases</h3>
+            <p>Bacterial, viral infections, dengue, malaria, influenza, and vaccine advice.</p>
+            <a href="#" class="cat-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="category-card">
+            <div class="cat-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>Neurological</h3>
+            <p>Migraines, neuropathy, stroke symptoms, epilepsy, and cognitive health.</p>
+            <a href="#" class="cat-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="category-card">
+            <div class="cat-icon"><i class="fa-solid fa-droplet"></i></div>
+            <h3>Blood Disorders</h3>
+            <p>Anemia, clotting disorders, hemoglobin optimization, and iron deficiency.</p>
+            <a href="#" class="cat-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="category-card">
+            <div class="cat-icon"><i class="fa-solid fa-person-dress"></i></div>
+            <h3>Women's Health</h3>
+            <p>PCOS, hormonal balance, maternal care, screening recommendations, and wellness.</p>
+            <a href="#" class="cat-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="category-card">
+            <div class="cat-icon"><i class="fa-solid fa-child"></i></div>
+            <h3>Children's Health</h3>
+            <p>Pediatric immunity, growth milestones, vaccinations, and seasonal ailments.</p>
+            <a href="#" class="cat-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. HEALTH & WELLNESS SECTION ==================== -->
+    <section id="wellness" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Preventive Lifestyle</span>
+          <h2 class="section-title">Build Better Health Habits</h2>
+          <p class="section-description">Practical, science-backed guidance for your daily wellness journey.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="wellness-card">
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80" alt="Balanced nutritious food plate" class="wellness-img">
+            <div class="wellness-content">
+              <h3><i class="fa-solid fa-apple-whole text-teal"></i> Nutrition</h3>
+              <p>Adopt balanced meal patterns rich in fiber, whole grains, lean proteins, and micronutrients.</p>
+            </div>
+          </div>
+
+          <div class="wellness-card">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" alt="Person doing fitness workout outdoors" class="wellness-img">
+            <div class="wellness-content">
+              <h3><i class="fa-solid fa-person-running text-blue"></i> Exercise</h3>
+              <p>Aim for 150 minutes of moderate aerobic activity weekly along with light strength training.</p>
+            </div>
+          </div>
+
+          <div class="wellness-card">
+            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80" alt="Peaceful sleeping environment" class="wellness-img">
+            <div class="wellness-content">
+              <h3><i class="fa-solid fa-moon text-teal"></i> Sleep Hygiene</h3>
+              <p>Maintain consistent sleeping schedules to achieve 7-9 hours of restorative rest every night.</p>
+            </div>
+          </div>
+
+          <div class="wellness-card">
+            <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=80" alt="Glass of pure fresh water" class="wellness-img">
+            <div class="wellness-content">
+              <h3><i class="fa-solid fa-glass-water text-blue"></i> Hydration</h3>
+              <p>Drink 2.5–3 liters of clean water daily to optimize kidney function and cognitive focus.</p>
+            </div>
+          </div>
+
+          <div class="wellness-card">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Washing hands thoroughly with soap" class="wellness-img">
+            <div class="wellness-content">
+              <h3><i class="fa-solid fa-hands-bubbles text-teal"></i> Personal Hygiene</h3>
+              <p>Prevent viral and bacterial spread through structured handwashing and sanitation habits.</p>
+            </div>
+          </div>
+
+          <div class="wellness-card">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Person meditating calmly in daylight" class="wellness-img">
+            <div class="wellness-content">
+              <h3><i class="fa-solid fa-brain text-blue"></i> Mental Wellness</h3>
+              <p>Practice mindfulness, structured deep breathing, and stress reduction routines.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlighted Daily Health Tip Card -->
+        <div class="tip-card">
+          <div class="tip-badge"><i class="fa-solid fa-lightbulb"></i> Daily Health Tip</div>
+          <p class="tip-text">"Drink enough water throughout the day to support your overall metabolism, joint lubrication, and cellular hydration."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 8. PREGNANCY CARE SECTION ==================== -->
+    <section id="pregnancy" class="section">
+      <div class="container">
+        <div class="split-wrapper">
+          <div class="split-content">
+            <span class="section-tag tag-pink">Maternal Care</span>
+            <h2 class="section-title">Pregnancy Care & Guidance</h2>
+            <p class="section-description">Comprehensive resources for mothers-to-be across every trimester of maternal wellness.</p>
+            
+            <div class="feature-grid">
+              <div class="feature-box">
+                <i class="fa-solid fa-calendar-check text-pink"></i>
+                <div>
+                  <h4>Trimester Guidance</h4>
+                  <p>Week-by-week developmental updates and body changes.</p>
+                </div>
+              </div>
+              <div class="feature-box">
+                <i class="fa-solid fa-bowl-food text-pink"></i>
+                <div>
+                  <h4>Maternal Nutrition</h4>
+                  <p>Essential prenatal vitamins, folic acid, and iron diet plans.</p>
+                </div>
+              </div>
+              <div class="feature-box">
+                <i class="fa-solid fa-triangle-exclamation text-pink"></i>
+                <div>
+                  <h4>Warning Signs</h4>
+                  <p>Recognizing symptoms that require immediate clinical attention.</p>
+                </div>
+              </div>
+              <div class="feature-box">
+                <i class="fa-solid fa-syringe text-pink"></i>
+                <div>
+                  <h4>Vaccination Schedule</h4>
+                  <p>Timely immunizations for maternal and fetal protection.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="btn btn-pink btn-lg"><i class="fa-solid fa-heart"></i> Explore Pregnancy Care</a>
+          </div>
+
+          <div class="split-visual">
+            <img src="https://images.unsplash.com/photo-1537673156864-5d2c72de7824?auto=format&fit=crop&w=800&q=80" alt="Pregnant woman resting peacefully" class="rounded-img shadow-lg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 9. CHILD HEALTH SECTION ==================== -->
+    <section id="child-health" class="section bg-light">
+      <div class="container">
+        <div class="split-wrapper reverse">
+          <div class="split-content">
+            <span class="section-tag tag-green">Pediatric Wellness</span>
+            <h2 class="section-title">Healthy Kids, Healthy Future</h2>
+            <p class="section-description">Guiding parents with verified pediatric milestones, nutrition maps, and safety standards.</p>
+
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check text-green"></i> <strong>Complete Immunization Tracker:</strong> Standardized schedules from infancy through adolescence.</li>
+              <li><i class="fa-solid fa-circle-check text-green"></i> <strong>Growth & Developmental Milestones:</strong> Track height, weight, motor skills, and speech development.</li>
+              <li><i class="fa-solid fa-circle-check text-green"></i> <strong>Common Childhood Illnesses:</strong> Guidance on fever management, ear infections, and stomach upsets.</li>
+              <li><i class="fa-solid fa-circle-check text-green"></i> <strong>Child Safety & First Aid:</strong> Home proofing, choking protocols, and emergency readiness.</li>
+            </ul>
+
+            <a href="#" class="btn btn-teal btn-lg"><i class="fa-solid fa-child-reaching"></i> Explore Child Health</a>
+          </div>
+
+          <div class="split-visual">
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80" alt="Mother playing with healthy smiling toddler" class="rounded-img shadow-lg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 10. NEARBY HEALTHCARE SECTION ==================== -->
+    <section id="nearby" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Geolocation Finder</span>
+          <h2 class="section-title">Healthcare Near You</h2>
+          <p class="section-description">Locate urgent medical facilities, specialized clinics, and 24/7 pharmacies in your immediate vicinity.</p>
+        </div>
+
+        <!-- Map Mockup -->
+        <div class="map-container">
+          <div class="map-placeholder">
+            <div class="map-overlay-text">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>Interactive Healthcare Map</span>
+              <small>Showing verified medical centers near Dewas, Madhya Pradesh</small>
+            </div>
+            <!-- Mock Map Pins -->
+            <div class="map-pin pin-1"><i class="fa-solid fa-hospital"></i><span class="pin-tooltip">City General Hospital (1.2 km)</span></div>
+            <div class="map-pin pin-2"><i class="fa-solid fa-prescription-bottle-medical"></i><span class="pin-tooltip">Apex Pharmacy (0.5 km)</span></div>
+            <div class="map-pin pin-3"><i class="fa-solid fa-vial-virus"></i><span class="pin-tooltip">LifePath Diagnostics (2.1 km)</span></div>
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-buttons">
+          <button class="filter-btn active"><i class="fa-solid fa-border-all"></i> All Services</button>
+          <button class="filter-btn"><i class="fa-solid fa-hospital"></i> Hospitals</button>
+          <button class="filter-btn"><i class="fa-solid fa-stethoscope"></i> Clinics</button>
+          <button class="filter-btn"><i class="fa-solid fa-prescription-bottle-medical"></i> Pharmacies</button>
+          <button class="filter-btn"><i class="fa-solid fa-flask"></i> Laboratories</button>
+          <button class="filter-btn"><i class="fa-solid fa-droplet"></i> Blood Banks</button>
+        </div>
+
+        <!-- Healthcare Cards -->
+        <div class="grid grid-3">
+          <div class="location-card">
+            <div class="location-header">
+              <span class="type-badge badge-hospital">Hospital</span>
+              <span class="status-badge status-open">Open 24/7</span>
+            </div>
+            <h3>City Central Multi-Specialty Hospital</h3>
+            <p class="location-address"><i class="fa-solid fa-location-dot"></i> 14 Healthcare Blvd, Center District</p>
+            <div class="location-meta">
+              <span><i class="fa-solid fa-route text-teal"></i> 1.2 km away</span>
+              <span><i class="fa-solid fa-star text-amber"></i> 4.8 (340 reviews)</span>
+            </div>
+            <button class="btn btn-secondary btn-block">View Details & Directions</button>
+          </div>
+
+          <div class="location-card">
+            <div class="location-header">
+              <span class="type-badge badge-pharmacy">Pharmacy</span>
+              <span class="status-badge status-open">Open 24/7</span>
+            </div>
+            <h3>Apex Medical & Wellness Pharmacy</h3>
+            <p class="location-address"><i class="fa-solid fa-location-dot"></i> 88 Main Station Road</p>
+            <div class="location-meta">
+              <span><i class="fa-solid fa-route text-teal"></i> 0.5 km away</span>
+              <span><i class="fa-solid fa-star text-amber"></i> 4.9 (120 reviews)</span>
+            </div>
+            <button class="btn btn-secondary btn-block">View Details & Directions</button>
+          </div>
+
+          <div class="location-card">
+            <div class="location-header">
+              <span class="type-badge badge-lab">Laboratory</span>
+              <span class="status-badge status-closed">Closes at 9:00 PM</span>
+            </div>
+            <h3>LifePath Advanced Diagnostic Lab</h3>
+            <p class="location-address"><i class="fa-solid fa-location-dot"></i> 402 Diagnostic Avenue</p>
+            <div class="location-meta">
+              <span><i class="fa-solid fa-route text-teal"></i> 2.1 km away</span>
+              <span><i class="fa-solid fa-star text-amber"></i> 4.7 (85 reviews)</span>
+            </div>
+            <button class="btn btn-secondary btn-block">View Details & Directions</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 11. BMI CALCULATOR SECTION ==================== -->
+    <section id="bmi" class="section bg-light">
+      <div class="container">
+        <div class="bmi-wrapper">
+          <div class="bmi-info">
+            <span class="section-tag">Body Metrics</span>
+            <h2 class="section-title">Calculate Your BMI</h2>
+            <p class="section-description">
+              Body Mass Index (BMI) provides a straightforward metric to gauge whether your weight falls within a healthy proportion to your height.
+            </p>
+            <div class="bmi-ranges">
+              <div class="range-item item-underweight">
+                <span>Underweight</span>
+                <strong>&lt; 18.5</strong>
+              </div>
+              <div class="range-item item-normal">
+                <span>Normal Weight</span>
+                <strong>18.5 – 24.9</strong>
+              </div>
+              <div class="range-item item-overweight">
+                <span>Overweight</span>
+                <strong>25.0 – 29.9</strong>
+              </div>
+              <div class="range-item item-obese">
+                <span>Obese</span>
+                <strong>&ge; 30.0</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="bmi-card">
+            <h3>BMI Calculator</h3>
+            <form class="bmi-form" onsubmit="return false;">
+              <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                  <label class="radio-card"><input type="radio" name="gender" checked> <span>Male</span></label>
+                  <label class="radio-card"><input type="radio" name="gender"> <span>Female</span></label>
+                </div>
+              </div>
+
+              <div class="grid grid-2">
+                <div class="form-group">
+                  <label for="height">Height (cm)</label>
+                  <input type="number" id="height" placeholder="e.g. 175" value="175">
+                </div>
+                <div class="form-group">
+                  <label for="weight">Weight (kg)</label>
+                  <input type="number" id="weight" placeholder="e.g. 70" value="70">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="age">Age (years)</label>
+                <input type="number" id="age" placeholder="e.g. 28" value="28">
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Calculate BMI</button>
+            </form>
+
+            <div class="bmi-result-card">
+              <div class="score-display">
+                <span class="score-num">22.9</span>
+                <span class="score-unit">kg/m²</span>
+              </div>
+              <div class="score-details">
+                <span class="result-category text-green"><i class="fa-solid fa-circle-check"></i> Normal Weight</span>
+                <p>Your Body Mass Index is within the healthy range. Keep maintaining your balanced diet and regular exercise routine.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 12. BLOOD DONATION SECTION ==================== -->
+    <section id="blood-donation" class="section">
+      <div class="container">
+        <div class="blood-hero">
+          <div class="blood-hero-content">
+            <span class="badge badge-red"><i class="fa-solid fa-heart-pulse"></i> Save Lives Today</span>
+            <h2>Every Drop Can Save a Life</h2>
+            <p>Connect with local blood banks, register as a voluntary donor, or post emergency blood requests for patients in urgent need.</p>
+            <div class="blood-hero-actions">
+              <a href="#find-blood" class="btn btn-red btn-lg"><i class="fa-solid fa-magnifying-glass font-small"></i> Find Blood</a>
+              <a href="#become-donor" class="btn btn-secondary-white btn-lg"><i class="fa-solid fa-hand-holding-medical"></i> Become a Donor</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blood-groups-section">
+          <h3 class="sub-heading">Select Blood Group to Check Availability</h3>
+          <div class="grid grid-4 grid-mobile-2">
+            <div class="blood-group-card">
+              <div class="blood-type">A+</div>
+              <div class="blood-status text-green"><i class="fa-solid fa-circle"></i> 42 Units Available</div>
+              <button class="btn btn-sm btn-outline">Request A+</button>
+            </div>
+            <div class="blood-group-card">
+              <div class="blood-type">A-</div>
+              <div class="blood-status text-amber"><i class="fa-solid fa-circle"></i> 8 Units Available</div>
+              <button class="btn btn-sm btn-outline">Request A-</button>
+            </div>
+            <div class="blood-group-card">
+              <div class="blood-type">B+</div>
+              <div class="blood-status text-green"><i class="fa-solid fa-circle"></i> 58 Units Available</div>
+              <button class="btn btn-sm btn-outline">Request B+</button>
+            </div>
+            <div class="blood-group-card">
+              <div class="blood-type">B-</div>
+              <div class="blood-status text-red"><i class="fa-solid fa-circle"></i> 3 Units Available</div>
+              <button class="btn btn-sm btn-outline">Request B-</button>
+            </div>
+            <div class="blood-group-card">
+              <div class="blood-type">AB+</div>
+              <div class="blood-status text-green"><i class="fa-solid fa-circle"></i> 25 Units Available</div>
+              <button class="btn btn-sm btn-outline">Request AB+</button>
+            </div>
+            <div class="blood-group-card">
+              <div class="blood-type">AB-</div>
+              <div class="blood-status text-red"><i class="fa-solid fa-circle"></i> 2 Units Available</div>
+              <button class="btn btn-sm btn-outline">Request AB-</button>
+            </div>
+            <div class="blood-group-card">
+              <div class="blood-type">O+</div>
+              <div class="blood-status text-green"><i class="fa-solid fa-circle"></i> 64 Units Available</div>
+              <button class="btn btn-sm btn-outline">Request O+</button>
+            </div>
+            <div class="blood-group-card">
+              <div class="blood-type">O-</div>
+              <div class="blood-status text-amber"><i class="fa-solid fa-circle"></i> 6 Units Available</div>
+              <button class="btn btn-sm btn-outline">Request O-</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 13. FIRST AID SECTION ==================== -->
+    <section id="first-aid" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag tag-red">Emergency Protocol</span>
+          <h2 class="section-title">First Aid & Emergency Guide</h2>
+          <p class="section-description">Immediate, step-by-step guidance for critical medical situations before emergency services arrive.</p>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="emergency-card">
+            <div class="em-icon"><i class="fa-solid fa-fire-burner"></i></div>
+            <h3>Burns</h3>
+            <p>Cool the burn with cool running water for at least 10 minutes. Cover loosely with sterile cling film.</p>
+            <a href="#" class="em-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="emergency-card">
+            <div class="em-icon"><i class="fa-solid fa-bandage"></i></div>
+            <h3>Cuts & Bleeding</h3>
+            <p>Apply firm direct pressure with a clean cloth. Elevate the injured limb above heart level if possible.</p>
+            <a href="#" class="em-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="emergency-card">
+            <div class="em-icon"><i class="fa-solid fa-lungs"></i></div>
+            <h3>Choking</h3>
+            <p>Perform 5 sharp back blows between shoulder blades followed by 5 abdominal thrusts (Heimlich maneuver).</p>
+            <a href="#" class="em-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="emergency-card">
+            <div class="em-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h3>CPR (Adult)</h3>
+            <p>Push hard and fast in the center of the chest at 100-120 compressions per minute until help arrives.</p>
+            <a href="#" class="em-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="emergency-card">
+            <div class="em-icon"><i class="fa-solid fa-bone"></i></div>
+            <h3>Fractures</h3>
+            <p>Immobilize the injured area. Do not attempt to push exposed bones back into place.</p>
+            <a href="#" class="em-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="emergency-card">
+            <div class="em-icon"><i class="fa-solid fa-sun"></i></div>
+            <h3>Heat Stroke</h3>
+            <p>Move person to a cool area, apply cold damp cloths, and sip water slowly if conscious.</p>
+            <a href="#" class="em-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="emergency-card">
+            <div class="em-icon"><i class="fa-solid fa-bolt text-amber"></i></div>
+            <h3>Electric Shock</h3>
+            <p>Do not touch the victim while connected to current. Turn off power source immediately.</p>
+            <a href="#" class="em-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="emergency-card">
+            <div class="em-icon"><i class="fa-solid fa-staff-snake"></i></div>
+            <h3>Snake Bite</h3>
+            <p>Keep person calm and immobilized. Remove tight jewelry and seek urgent medical anti-venom.</p>
+            <a href="#" class="em-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 14. GOVERNMENT HEALTH SCHEMES ==================== -->
+    <section id="schemes" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Public Healthcare</span>
+          <h2 class="section-title">Government Healthcare Schemes</h2>
+          <p class="section-description">Discover universal health protection policies, financial aid, and subsidized treatment initiatives.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="scheme-card">
+            <div class="scheme-header">
+              <span class="scheme-tag">National Cover</span>
+              <h3>Ayushman Bharat (PM-JAY)</h3>
+            </div>
+            <p class="scheme-desc">Provides secondary and tertiary hospitalization coverage up to ₹5 Lakh per family annually.</p>
+            <div class="scheme-details">
+              <div><strong>Eligibility:</strong> Low-income families listed under SECC database.</div>
+              <div><strong>Benefits:</strong> Cashless access to 27,000+ empanelled hospitals.</div>
+              <div><strong>Required Docs:</strong> Aadhaar Card, Ration Card, PM-JAY letter.</div>
+            </div>
+            <a href="#" class="btn btn-outline btn-block">Learn More & Apply</a>
+          </div>
+
+          <div class="scheme-card">
+            <div class="scheme-header">
+              <span class="scheme-tag">Maternal Health</span>
+              <h3>Pradhan Mantri Matru Vandana</h3>
+            </div>
+            <p class="scheme-desc">Direct cash incentive scheme of ₹5,000 for pregnant women and lactating mothers.</p>
+            <div class="scheme-details">
+              <div><strong>Eligibility:</strong> First live birth, age 19 years and above.</div>
+              <div><strong>Benefits:</strong> Compensation for wage loss & nutritional support.</div>
+              <div><strong>Required Docs:</strong> Mother & Child Protection (MCP) card, ID proof.</div>
+            </div>
+            <a href="#" class="btn btn-outline btn-block">Learn More & Apply</a>
+          </div>
+
+          <div class="scheme-card">
+            <div class="scheme-header">
+              <span class="scheme-tag">Affordable Medicine</span>
+              <h3>Jan Aushadhi Yojana</h3>
+            </div>
+            <p class="scheme-desc">Provides quality generic medicines at prices 50% to 90% lower than branded market equivalents.</p>
+            <div class="scheme-details">
+              <div><strong>Eligibility:</strong> Open to all citizens of India.</div>
+              <div><strong>Benefits:</strong> Access to 1,800+ medicines and 290 surgical items.</div>
+              <div><strong>Required Docs:</strong> Valid doctor prescription.</div>
+            </div>
+            <a href="#" class="btn btn-outline btn-block">Learn More & Apply</a>
+          </div>
+        </div>
+
+        <div class="text-center margin-top-lg">
+          <a href="#" class="btn btn-primary btn-lg">Explore All Government Schemes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 15. OFFLINE DATA SYNC SECTION ==================== -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="offline-card">
+          <div class="offline-content">
+            <div class="offline-badge"><i class="fa-solid fa-wifi font-small"></i> Offline Ready</div>
+            <h2>Healthcare Even When You're Offline</h2>
+            <p>HealthAI caches critical medical information, first-aid guides, and personal health cards directly on your device so you stay protected even without an internet connection.</p>
+            
+            <div class="sync-status-grid">
+              <div class="status-box online-box">
+                <i class="fa-solid fa-cloud-check"></i>
+                <div>
+                  <strong>Online Mode</strong>
+                  <small>Data Synced: Today, 10:42 AM</small>
+                </div>
+              </div>
+
+              <div class="status-box offline-box">
+                <i class="fa-solid fa-hard-drive"></i>
+                <div>
+                  <strong>Offline Mode Active</strong>
+                  <small>Your saved health records remain available.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="offline-action">
+            <button class="btn btn-primary btn-lg"><i class="fa-solid fa-arrows-rotate"></i> Sync Data Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 16. HEALTHCARE STATISTICS SECTION ==================== -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="grid grid-4">
+          <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">AI Health Assistance</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Health Resources</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">12,000+</div>
+            <div class="stat-label">Nearby Facilities</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">99.4%</div>
+            <div class="stat-label">Personalized Accuracy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 17. CALL TO ACTION SECTION ==================== -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <h2 class="cta-title">Take Control of Your Health Today</h2>
+          <p class="cta-description">Access AI health assistance, verified medical knowledge, emergency guides, and healthcare locator tools all in one unified platform.</p>
+          <div class="cta-actions">
+            <a href="#signup" class="btn btn-primary btn-lg">Get Started Free</a>
+            <a href="#services" class="btn btn-secondary-white btn-lg">Explore Health Resources</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 18. FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top grid grid-4">
+        <!-- Column 1 -->
+        <div class="footer-col">
+          <a href="#home" class="logo footer-logo">
+            <span class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+            <span class="logo-text text-white">Health<span class="logo-accent">AI</span></span>
+          </a>
+          <p class="footer-about">
+            Empowering individuals with instant, reliable, and accessible AI-driven health support and essential healthcare resources.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+          <h4>AI Health</h4>
+          <ul>
+            <li><a href="#symptom-checker">Symptom Checker</a></li>
+            <li><a href="#ai-assistant">AI Chatbot Assistant</a></li>
+            <li><a href="#ai-assistant">Voice Assistant</a></li>
+            <li><a href="#bmi">BMI Health Analyzer</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+          <h4>Health Resources</h4>
+          <ul>
+            <li><a href="#diseases">Disease Index</a></li>
+            <li><a href="#wellness">Health & Wellness Tips</a></li>
+            <li><a href="#pregnancy">Pregnancy Care</a></li>
+            <li><a href="#child-health">Child Health</a></li>
+            <li><a href="#first-aid">First Aid Protocols</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-col">
+          <h4>Services & Public Schemes</h4>
+          <ul>
+            <li><a href="#nearby">Nearby Hospitals</a></li>
+            <li><a href="#nearby">Pharmacies & Labs</a></li>
+            <li><a href="#blood-donation">Blood Donation Portal</a></li>
+            <li><a href="#schemes">Government Schemes</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 HealthAI. All Rights Reserved.</p>
+        <div class="legal-links">
+          <a href="#">Medical Disclaimer</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
