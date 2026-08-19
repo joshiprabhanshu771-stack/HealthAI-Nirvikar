@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Tips — Simple, Evidence-Informed Guidance | HealthAI</title>
+  <meta name="description" content="Explore evidence-informed health tips with visual hydration tables, sleep duration guides, exercise targets, balanced meal models, and heart health recommendations.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/cssfiles/user_dashboard.css">
+  <link rel="stylesheet" href="/css/health_tips.css">
+</head>
+<body class="wellness-page">
+
+  <!-- ==================== 1. TOP NAVBAR ==================== -->
+  <header class="navbar-header">
+    <nav class="navbar container">
+      <a href="/" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+        <span class="logo-text">Health<span class="logo-accent">AI</span></span>
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars icon-open"></i>
+        <i class="fa-solid fa-xmark icon-close"></i>
+      </label>
+
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/#services" class="nav-link">AI Health</a></li>
+        <li><a href="/#diseases" class="nav-link">Diseases</a></li>
+        <li><a href="/wellness" class="nav-link active">Health &amp; Wellness</a></li>
+        <li><a href="/#services" class="nav-link">Services</a></li>
+        <li><a href="/#schemes" class="nav-link">Resources</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/login" class="btn btn-tertiary">Log In</a>
+        <a href="/signup" class="btn btn-primary">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== 2. MAIN CONTENT ==================== -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+        <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+        <a href="/wellness">Health &amp; Wellness</a>
+        <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+        <span class="current">Health Tips</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="page-hero">
+        <span class="hero-tag"><i class="fa-solid fa-lightbulb"></i> Educational Guides</span>
+        <h1 class="page-title">Health Tips</h1>
+        <p class="page-subtitle">Simple, evidence-informed guidance for everyday wellbeing.</p>
+      </div>
+
+      <!-- ==================== A. TODAY'S HEALTH TIP ==================== -->
+      <section id="todayTipBanner" class="today-tip-banner" aria-label="Today's Health Tip">
+        <!-- Rendered dynamically by JavaScript -->
+        <div class="today-tip-top">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span class="today-badge"><i class="fa-solid fa-sparkles"></i> Today's Health Tip</span>
+            <span class="cat-badge cat-Hydration" th:text="${todayTip != null ? todayTip.category : 'Hydration'}">Hydration</span>
+          </div>
+          <button id="nextTipBtn" class="btn-next-tip" title="View another health tip">
+            <i class="fa-solid fa-arrows-rotate"></i> Next Tip
+          </button>
+        </div>
+
+        <h2 class="today-tip-title">
+          <i class="fa-solid fa-glass-water text-teal"></i>
+          <span th:text="${todayTip != null ? todayTip.title : 'How Much Fluid Do You Need?'}">How Much Fluid Do You Need?</span>
+        </h2>
+        <p class="today-tip-desc" th:text="${todayTip != null ? todayTip.shortDescription : 'Learn about general daily hydration recommendations based on age groups and personal circumstances.'}">
+          Learn about general daily hydration recommendations based on age groups and personal circumstances.
+        </p>
+
+        <div class="today-tip-meta">
+          <div class="today-meta-item">
+            <strong><i class="fa-solid fa-circle-question"></i> Why It Matters</strong>
+            <p th:text="${todayTip != null ? todayTip.whyItMatters : 'Mild dehydration can lead to impaired concentration, headaches, daytime fatigue, reduced physical endurance, and kidney strain.'}">
+              Mild dehydration can lead to impaired concentration, headaches, daytime fatigue, reduced physical endurance, and kidney strain.
+            </p>
+          </div>
+          <div class="today-meta-item">
+            <strong><i class="fa-solid fa-bullseye"></i> Practical Action</strong>
+            <p th:text="${todayTip != null ? todayTip.actionableTip : 'Sip fluids consistently throughout the day rather than drinking large quantities all at once.'}">
+              Sip fluids consistently throughout the day rather than drinking large quantities all at once.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <button class="btn btn-primary" th:onclick="'window.HealthTipsEngine.openModalById(' + ${todayTip != null ? todayTip.id : 1} + ')'">
+            <i class="fa-solid fa-book-medical"></i> Read Full Guidance &amp; Visual Guide
+          </button>
+          <span style="font-size: 0.85rem; color: #94a3b8;">
+            <i class="fa-solid fa-shield-check"></i> Source: <span th:text="${todayTip != null ? todayTip.sourceName : 'WHO / NHS UK'}">WHO / NHS UK</span>
+          </span>
+        </div>
+      </section>
+
+      <!-- ==================== B & C. SEARCH & CATEGORY FILTERS ==================== -->
+      <section class="controls-wrapper" aria-label="Search and Category Filters">
+        <!-- Search Input -->
+        <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchTipsInput" class="search-input" placeholder="Search health tips by title, category, keywords, or topics (e.g., water, sleep, heart)..." aria-label="Search health tips">
+          <button id="searchClearBtn" class="search-clear" title="Clear search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filter-pills" role="tablist" aria-label="Filter by category">
+          <button class="filter-btn active" data-category="All" role="tab"><i class="fa-solid fa-border-all"></i> All</button>
+          <button class="filter-btn" data-category="Nutrition" role="tab"><i class="fa-solid fa-apple-whole"></i> Nutrition</button>
+          <button class="filter-btn" data-category="Hydration" role="tab"><i class="fa-solid fa-glass-water"></i> Hydration</button>
+          <button class="filter-btn" data-category="Exercise" role="tab"><i class="fa-solid fa-person-running"></i> Exercise</button>
+          <button class="filter-btn" data-category="Sleep" role="tab"><i class="fa-solid fa-moon"></i> Sleep</button>
+          <button class="filter-btn" data-category="Mental Wellness" role="tab"><i class="fa-solid fa-brain"></i> Mental Wellness</button>
+          <button class="filter-btn" data-category="Hygiene" role="tab"><i class="fa-solid fa-hands-bubbles"></i> Hygiene</button>
+          <button class="filter-btn" data-category="Heart Health" role="tab"><i class="fa-solid fa-heart-pulse"></i> Heart Health</button>
+        </div>
+      </section>
+
+      <!-- ==================== D. HEALTH TIP CARDS GRID ==================== -->
+      <section id="tipsGrid" class="tips-grid" aria-label="Health Tips List">
+        <!-- Server-rendered initial cards / dynamically replaced by JavaScript -->
+        <div th:each="tip : ${tips}" class="tip-card" th:onclick="'window.HealthTipsEngine.openModalById(' + ${tip.id} + ')'">
+          <div>
+            <div class="tip-card-top">
+              <div class="tip-icon-box" th:classappend="'cat-' + ${#strings.replace(tip.category, ' ', '-')}">
+                <i class="fa-solid" th:classappend="${tip.icon}"></i>
+              </div>
+              <span class="cat-badge" th:classappend="'cat-' + ${#strings.replace(tip.category, ' ', '-')}" th:text="${tip.category}">Category</span>
+            </div>
+            <h3 class="tip-card-title" th:text="${tip.title}">Health Tip Title</h3>
+            <p class="tip-card-desc" th:text="${tip.shortDescription}">Short description</p>
+          </div>
+          <div class="tip-card-footer">
+            <span class="tip-visual-indicator">
+              <i class="fa-solid fa-table text-teal" th:if="${tip.visualType != null and tip.visualType != 'none'}"></i>
+              <span th:text="${tip.visualType != null and tip.visualType != 'none' ? 'Includes Visual Guide' : 'Evidence Guide'}">Includes Visual Guide</span>
+            </span>
+            <button class="btn-read-more" aria-label="Read more">
+              Read More <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== G. HEALTH DISCLAIMER ==================== -->
+      <div class="global-disclaimer">
+        <i class="fa-solid fa-shield-halved disclaimer-icon"></i>
+        <div class="disclaimer-text">
+          <strong>Health Disclaimer:</strong>
+          <p>
+            The information provided is for general health and wellness education and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or qualified health provider with any questions you may have regarding a medical condition.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== E & F. DETAILED HEALTH TIP MODAL ==================== -->
+  <div id="tipModalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTipTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="flex: 1;">
+          <span id="modalCategoryBadge" class="cat-badge cat-Hydration">Hydration</span>
+          <h2 id="modalTipTitle" class="page-title" style="font-size: 1.55rem; margin-top: 0.5rem; margin-bottom: 0;">How Much Fluid Do You Need?</h2>
+        </div>
+        <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="modalBodyContent" class="modal-body">
+        <!-- Rendered dynamically by health_tips.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 3. FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top grid grid-4">
+        <div class="footer-col">
+          <a href="/" class="logo footer-logo">
+            <span class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+            <span class="logo-text text-white">Health<span class="logo-accent">AI</span></span>
+          </a>
+          <p class="footer-about">
+            Empowering individuals with reliable, evidence-informed health education and modern healthcare tools.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Health &amp; Wellness</h4>
+          <ul>
+            <li><a href="/wellness/tips">Health Tips &amp; Guides</a></li>
+            <li><a href="/#bmi">BMI Calculator</a></li>
+            <li><a href="/#pregnancy">Pregnancy Care</a></li>
+            <li><a href="/#child-health">Child Health</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="javascript:void(0)" onclick="document.querySelector('[data-category=Hydration]').click(); window.scrollTo({top: 400, behavior: 'smooth'});">Hydration</a></li>
+            <li><a href="javascript:void(0)" onclick="document.querySelector('[data-category=Sleep]').click(); window.scrollTo({top: 400, behavior: 'smooth'});">Sleep Hygiene</a></li>
+            <li><a href="javascript:void(0)" onclick="document.querySelector('[data-category=Exercise]').click(); window.scrollTo({top: 400, behavior: 'smooth'});">Physical Activity</a></li>
+            <li><a href="javascript:void(0)" onclick="document.querySelector('[data-category=Nutrition]').click(); window.scrollTo({top: 400, behavior: 'smooth'});">Balanced Nutrition</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Verified Sources</h4>
+          <ul>
+            <li><a href="https://www.who.int" target="_blank" rel="noopener">World Health Organization</a></li>
+            <li><a href="https://www.cdc.gov" target="_blank" rel="noopener">Centers for Disease Control</a></li>
+            <li><a href="https://www.nhs.uk" target="_blank" rel="noopener">NHS UK Live Well</a></li>
+            <li><a href="https://www.heart.org" target="_blank" rel="noopener">American Heart Association</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 HealthAI. All Rights Reserved.</p>
+        <div class="legal-links">
+          <a href="#">Medical Disclaimer</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Embedded Initial Tips Data for Instant Offline Execution -->
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    window.INITIAL_TIPS = /*[[${tips}]]*/ [];
+    /*]]>*/
+  </script>
+
+  <!-- Client-side Engine -->
+  <script src="/js/health_tips.js"></script>
+
+</body>
+</html>
