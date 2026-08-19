@@ -1,0 +1,530 @@
+/* =========================================
+   HEALTH AI - GLOBAL STYLES
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(74, 222, 128, 0.18), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.20), transparent 32%),
+        linear-gradient(135deg, #071a2b, #0b3044, #063b4c);
+
+    color: #ffffff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND EFFECTS
+   ========================================= */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+body::before {
+    width: 280px;
+    height: 280px;
+
+    top: -100px;
+    left: -100px;
+
+    background: rgba(45, 212, 191, 0.15);
+}
+
+body::after {
+    width: 350px;
+    height: 350px;
+
+    right: -150px;
+    bottom: -150px;
+
+    background: rgba(59, 130, 246, 0.18);
+}
+
+
+/* =========================================
+   AUTH CONTAINER
+   ========================================= */
+
+.auth-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================
+   AUTH CARD
+   ========================================= */
+
+.auth-card {
+    width: 100%;
+    max-width: 470px;
+
+    padding: 42px;
+
+    background: rgba(255, 255, 255, 0.09);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    animation: cardAppear 0.7s ease;
+}
+
+
+/* =========================================
+   CARD ANIMATION
+   ========================================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.logo {
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 22px;
+}
+
+.logo span {
+    color: #ffffff;
+}
+
+.logo strong {
+    color: #4ade80;
+
+    margin-left: 2px;
+}
+
+
+/* =========================================
+   HEADINGS
+   ========================================= */
+
+.auth-card h1 {
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+form {
+    width: 100%;
+}
+
+
+/* =========================================
+   INPUT GROUP
+   ========================================= */
+
+.input-group {
+    margin-bottom: 19px;
+}
+
+.input-group label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: rgba(255, 255, 255, 0.86);
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   INPUT FIELDS
+   ========================================= */
+
+.input-group input {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 13px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Placeholder */
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.38);
+}
+
+
+/* Focus */
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.12);
+
+    border-color: #4ade80;
+
+    box-shadow:
+        0 0 0 3px rgba(74, 222, 128, 0.12),
+        0 5px 20px rgba(0, 0, 0, 0.10);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   TERMS CHECKBOX
+   ========================================= */
+
+.terms {
+    margin: 7px 0 22px;
+
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.terms label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+.terms input {
+    width: 15px;
+    height: 15px;
+
+    accent-color: #4ade80;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
+.auth-button {
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #4ade80,
+        #22c55e
+    );
+
+    color: #052e16;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(34, 197, 94, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 32px rgba(34, 197, 94, 0.35);
+
+    filter: brightness(1.05);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   LOGIN / SIGNUP SWITCH
+   ========================================= */
+
+.switch-auth {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: rgba(255, 255, 255, 0.60);
+
+    font-size: 13px;
+}
+
+.switch-auth a {
+    color: #4ade80;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    margin-left: 4px;
+
+    transition: color 0.2s ease;
+}
+
+.switch-auth a:hover {
+    color: #86efac;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   PASSWORD INPUT
+   ========================================= */
+
+input[type="password"] {
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   AUTOFILL
+   ========================================= */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #071a2b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(74, 222, 128, 0.55);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 18px 12px;
+    }
+
+    .auth-card {
+        padding: 30px 22px;
+
+        border-radius: 22px;
+    }
+
+    .auth-card h1 {
+        font-size: 26px;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .input-group input {
+        height: 48px;
+    }
+
+    .auth-button {
+        height: 50px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .auth-card {
+        padding: 25px 18px;
+    }
+
+    .auth-card h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   LOGIN OPTIONS
+   ========================================= */
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: -5px;
+    margin-bottom: 22px;
+
+    font-size: 12px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    cursor: pointer;
+}
+
+.remember-me input {
+    width: 15px;
+    height: 15px;
+
+    accent-color: #4ade80;
+
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #4ade80;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.forgot-password:hover {
+    color: #86efac;
+
+    text-decoration: underline;
+}
