@@ -528,3 +528,33 @@ input:-webkit-autofill:focus {
 
     text-decoration: underline;
 }
+
+.error-message {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #fca5a5;
+
+    padding: 12px 15px;
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.success-message {
+    background: rgba(74, 222, 128, 0.12);
+    border: 1px solid rgba(74, 222, 128, 0.35);
+    color: #86efac;
+
+    padding: 12px 15px;
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
