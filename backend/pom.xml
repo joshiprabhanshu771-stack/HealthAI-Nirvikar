@@ -27,7 +27,8 @@
     </description>
 
     <properties>
-        <java.version>24</java.version>
+        <java.version>25</java.version>
+        <start-class>com.healthai.HealthAIApplication</start-class>
     </properties>
 
     <dependencies>
@@ -38,11 +39,11 @@
             <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
 
-        <!-- Spring Data JPA 
+        <!-- Spring Data JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency> -->
+        </dependency>
 
         <!-- MySQL Connector for JDBC -->
         <dependency>
@@ -56,12 +57,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
-
-        <!-- Spring Security 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency> -->
 
         <!-- DevTools -->
         <dependency>
@@ -77,7 +72,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
