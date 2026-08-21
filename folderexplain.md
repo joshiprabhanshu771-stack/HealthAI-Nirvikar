@@ -6,6 +6,8 @@ The project is divided into independently maintained backend, frontend, database
 
 ```text
 HealthAI-Nirvikar/
+├── .mvn/              Maven Wrapper support files
+├── .vscode/           VS Code workspace settings
 ├── backend/          Spring Boot API and server-side logic
 ├── frontend/         Vite frontend pages, styles, and scripts
 ├── database/         Canonical SQL schema, seed data, and migrations
@@ -14,6 +16,10 @@ HealthAI-Nirvikar/
 ├── folderexplain.md  Detailed folder and file guide
 └── .gitignore        Files excluded from Git
 ```
+
+Generated folders such as `backend/target/`, `frontend/dist/`, and
+`frontend/node_modules/` are created locally by builds or dependency
+installation and are excluded from the documented source structure.
 
 ## Backend
 
