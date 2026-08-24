@@ -27,7 +27,7 @@
     </description>
 
     <properties>
-        <java.version>25</java.version>
+        <java.version>21</java.version>
         <start-class>com.healthai.HealthAIApplication</start-class>
     </properties>
 

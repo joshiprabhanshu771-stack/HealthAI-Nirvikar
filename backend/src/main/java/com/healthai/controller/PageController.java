@@ -40,6 +40,11 @@ public class PageController {
         return redirect("/src/pages/health_tips.html");
     }
 
+    @GetMapping({"/wellness/pregnancy", "/pregnancy-care", "/pregnancy"})
+    public RedirectView pregnancyCare() {
+        return redirect("/src/pages/pregnancy_care.html");
+    }
+
     private RedirectView redirect(String path) {
         return new RedirectView(frontendUrl + path);
     }

@@ -2,6 +2,8 @@
 
 Base URL: `http://localhost:8080`
 
+## Health Tips Endpoints
+
 | Method | Path | Purpose |
 | --- | --- | --- |
 | GET | `/api/health-tips` | List all health tips |
@@ -10,4 +12,15 @@ Base URL: `http://localhost:8080`
 | GET | `/api/health-tips/search?q={query}` | Search health tips |
 | GET | `/api/health-tips/{id}` | Find one health tip |
 
-Legacy page paths redirect to the independently running frontend: `/`, `/dashboard`, `/home`, `/login`, `/signup`, `/wellness`, `/wellness/tips`, and `/health-tips`.
+## Pregnancy Care Endpoints
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| GET | `/api/pregnancy-care/trimesters` | List all trimester guidance & developmental milestones |
+| GET | `/api/pregnancy-care/trimesters/{number}` | Get guidance for a specific trimester (1, 2, 3) |
+| GET | `/api/pregnancy-care/nutrition` | List prenatal vitamins, safe foods & foods to avoid |
+| GET | `/api/pregnancy-care/nutrition?category={cat}` | Filter nutrition by category (`Essential`, `Safe Food`, `Avoid Food`) |
+| GET | `/api/pregnancy-care/warning-signs` | List maternal red-flag warning signs and emergency protocols |
+| GET | `/api/pregnancy-care/calculate?lmp={YYYY-MM-DD}` | Calculate estimated due date, gestational age & stage from LMP |
+
+Legacy page paths redirect to the independently running frontend: `/`, `/dashboard`, `/home`, `/login`, `/signup`, `/wellness`, `/wellness/tips`, `/health-tips`, `/wellness/pregnancy`, `/pregnancy-care`, and `/pregnancy`.

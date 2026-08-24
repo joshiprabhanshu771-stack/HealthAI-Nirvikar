@@ -1,6 +1,14 @@
 target/
+backend/target/
 *.class
 *.log
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.npm/
 
 # NetBeans
 nbproject/private/
