@@ -3,6 +3,7 @@ package com.healthai.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /** Web configuration for the independently running frontend. */
@@ -11,15 +12,36 @@ public class WebConfig implements WebMvcConfigurer {
 
     private final String allowedOrigin;
 
-    public WebConfig(@Value("${app.frontend.allowed-origin:http://localhost:5173}") String allowedOrigin) {
+    public WebConfig(
+            @Value("${app.frontend.allowed-origin:http://localhost:5173}")
+            String allowedOrigin) {
+
         this.allowedOrigin = allowedOrigin;
     }
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+
         registry.addMapping("/api/**")
                 .allowedOrigins(allowedOrigin)
-                .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
+                .allowedMethods(
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "DELETE",
+                        "OPTIONS"
+                )
                 .allowedHeaders("*");
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+        registry
+                .addResourceHandler("/assets/**")
+                .addResourceLocations(
+                        "file:C:/Users/PILR/Desktop/HealthAI/frontend/assets/"
+                );
     }
 }

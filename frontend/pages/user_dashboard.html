@@ -44,8 +44,12 @@
 
       <div class="nav-actions">
         <button class="icon-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <a href="#login" class="btn btn-tertiary">Log In</a>
-        <a href="#signup" class="btn btn-primary">Sign Up</a>
+        <button onclick="window.location.href='/login'">
+    Login
+</button>
+        <button onclick="window.location.href='/signup'">
+    Signup
+</button>
       </div>
     </nav>
   </header>
@@ -542,85 +546,300 @@
     </section>
 
     <!-- ==================== 10. NEARBY HEALTHCARE SECTION ==================== -->
-    <section id="nearby" class="section">
-      <div class="container">
+    <!-- ==================== 10. NEARBY HEALTHCARE SECTION ==================== -->
+<section id="nearby" class="section">
+
+    <div class="container">
+
+        <!-- ==================== SECTION HEADER ==================== -->
+
         <div class="section-header">
-          <span class="section-tag">Geolocation Finder</span>
-          <h2 class="section-title">Healthcare Near You</h2>
-          <p class="section-description">Locate urgent medical facilities, specialized clinics, and 24/7 pharmacies in your immediate vicinity.</p>
+
+            <span class="section-tag">
+                Geolocation Finder
+            </span>
+
+            <h2 class="section-title">
+                Find Healthcare Services
+            </h2>
+
+            <p class="section-description">
+                Find hospitals, clinics, pharmacies, laboratories
+                and blood banks near your selected location.
+            </p>
+
         </div>
 
-        <!-- Map Mockup -->
+
+        <!-- ================================================= -->
+        <!-- LOCATION SEARCH -->
+        <!-- ================================================= -->
+
+        <div class="location-search-box">
+
+            <h3>
+                <i class="fa-solid fa-location-dot"></i>
+                Search Healthcare Near
+            </h3>
+
+
+            <!-- ============================================= -->
+            <!-- CURRENT LOCATION BUTTON -->
+            <!-- ============================================= -->
+
+            <button
+                type="button"
+                id="useCurrentLocationBtn"
+                class="btn btn-primary btn-lg">
+
+                <i class="fa-solid fa-location-crosshairs"></i>
+
+                Use My Current Location
+
+            </button>
+
+
+            <!-- ============================================= -->
+            <!-- OR -->
+            <!-- ============================================= -->
+
+            <div class="location-divider">
+                <span>OR</span>
+            </div>
+
+
+            <!-- ============================================= -->
+            <!-- SEARCH ANOTHER LOCATION -->
+            <!-- ============================================= -->
+
+            <div class="location-input-group">
+
+                <label for="locationSearch">
+                    Search another location
+                </label>
+
+
+                <div class="location-search-row">
+
+                    <input
+                        type="text"
+                        id="locationSearch"
+                        placeholder="e.g. Indore, Madhya Pradesh"
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="searchLocationBtn"
+                        class="btn btn-secondary">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Search Location
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ============================================= -->
+            <!-- SELECTED LOCATION -->
+            <!-- ============================================= -->
+
+            <div
+                id="selectedLocation"
+                class="selected-location">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                No location selected.
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- STATUS -->
+        <!-- ================================================= -->
+
+        <p
+            id="locationStatus"
+            class="location-status">
+        </p>
+
+
+        <!-- ================================================= -->
+        <!-- MAP -->
+        <!-- ================================================= -->
+
         <div class="map-container">
-          <div class="map-placeholder">
-            <div class="map-overlay-text">
-              <i class="fa-solid fa-map-location-dot"></i>
-              <span>Interactive Healthcare Map</span>
-              <small>Showing verified medical centers near Dewas, Madhya Pradesh</small>
+
+            <div class="map-placeholder">
+
+                <div class="map-overlay-text">
+
+                    <i class="fa-solid fa-map-location-dot"></i>
+
+                    <span>
+                        Interactive Healthcare Map
+                    </span>
+
+                    <small>
+                        Select a location to find nearby healthcare services
+                    </small>
+
+                </div>
+
+
+                <div class="map-pin pin-1">
+
+                    <i class="fa-solid fa-hospital"></i>
+
+                </div>
+
+
+                <div class="map-pin pin-2">
+
+                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+
+                </div>
+
+
+                <div class="map-pin pin-3">
+
+                    <i class="fa-solid fa-flask"></i>
+
+                </div>
+
             </div>
-            <!-- Mock Map Pins -->
-            <div class="map-pin pin-1"><i class="fa-solid fa-hospital"></i><span class="pin-tooltip">City General Hospital (1.2 km)</span></div>
-            <div class="map-pin pin-2"><i class="fa-solid fa-prescription-bottle-medical"></i><span class="pin-tooltip">Apex Pharmacy (0.5 km)</span></div>
-            <div class="map-pin pin-3"><i class="fa-solid fa-vial-virus"></i><span class="pin-tooltip">LifePath Diagnostics (2.1 km)</span></div>
-          </div>
+
         </div>
 
-        <!-- Filter Buttons -->
+
+        <!-- ================================================= -->
+        <!-- FILTER BUTTONS -->
+        <!-- ================================================= -->
+
         <div class="filter-buttons">
-          <button class="filter-btn active"><i class="fa-solid fa-border-all"></i> All Services</button>
-          <button class="filter-btn"><i class="fa-solid fa-hospital"></i> Hospitals</button>
-          <button class="filter-btn"><i class="fa-solid fa-stethoscope"></i> Clinics</button>
-          <button class="filter-btn"><i class="fa-solid fa-prescription-bottle-medical"></i> Pharmacies</button>
-          <button class="filter-btn"><i class="fa-solid fa-flask"></i> Laboratories</button>
-          <button class="filter-btn"><i class="fa-solid fa-droplet"></i> Blood Banks</button>
+
+            <button
+                type="button"
+                class="filter-btn active">
+
+                <i class="fa-solid fa-border-all"></i>
+
+                All Services
+
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn">
+
+                <i class="fa-solid fa-hospital"></i>
+
+                Hospitals
+
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn">
+
+                <i class="fa-solid fa-stethoscope"></i>
+
+                Clinics
+
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn">
+
+                <i class="fa-solid fa-prescription-bottle-medical"></i>
+
+                Pharmacies
+
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn">
+
+                <i class="fa-solid fa-flask"></i>
+
+                Laboratories
+
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn">
+
+                <i class="fa-solid fa-droplet"></i>
+
+                Blood Banks
+
+            </button>
+
         </div>
 
-        <!-- Healthcare Cards -->
-        <div class="grid grid-3">
-          <div class="location-card">
-            <div class="location-header">
-              <span class="type-badge badge-hospital">Hospital</span>
-              <span class="status-badge status-open">Open 24/7</span>
-            </div>
-            <h3>City Central Multi-Specialty Hospital</h3>
-            <p class="location-address"><i class="fa-solid fa-location-dot"></i> 14 Healthcare Blvd, Center District</p>
-            <div class="location-meta">
-              <span><i class="fa-solid fa-route text-teal"></i> 1.2 km away</span>
-              <span><i class="fa-solid fa-star text-amber"></i> 4.8 (340 reviews)</span>
-            </div>
-            <button class="btn btn-secondary btn-block">View Details & Directions</button>
-          </div>
 
-          <div class="location-card">
-            <div class="location-header">
-              <span class="type-badge badge-pharmacy">Pharmacy</span>
-              <span class="status-badge status-open">Open 24/7</span>
-            </div>
-            <h3>Apex Medical & Wellness Pharmacy</h3>
-            <p class="location-address"><i class="fa-solid fa-location-dot"></i> 88 Main Station Road</p>
-            <div class="location-meta">
-              <span><i class="fa-solid fa-route text-teal"></i> 0.5 km away</span>
-              <span><i class="fa-solid fa-star text-amber"></i> 4.9 (120 reviews)</span>
-            </div>
-            <button class="btn btn-secondary btn-block">View Details & Directions</button>
-          </div>
+        <!-- ================================================= -->
+        <!-- DYNAMIC HEALTHCARE RESULTS -->
+        <!-- ================================================= -->
 
-          <div class="location-card">
-            <div class="location-header">
-              <span class="type-badge badge-lab">Laboratory</span>
-              <span class="status-badge status-closed">Closes at 9:00 PM</span>
+        <div
+            id="hospitalResults"
+            class="grid grid-3">
+
+            <!-- Initial Message -->
+
+            <div class="location-card">
+
+                <div class="location-header">
+
+                    <span class="type-badge badge-hospital">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Healthcare
+
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Find Healthcare Services
+                </h3>
+
+
+                <p class="location-address">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Use your current location or search
+                    another city, area or locality.
+
+                </p>
+
             </div>
-            <h3>LifePath Advanced Diagnostic Lab</h3>
-            <p class="location-address"><i class="fa-solid fa-location-dot"></i> 402 Diagnostic Avenue</p>
-            <div class="location-meta">
-              <span><i class="fa-solid fa-route text-teal"></i> 2.1 km away</span>
-              <span><i class="fa-solid fa-star text-amber"></i> 4.7 (85 reviews)</span>
-            </div>
-            <button class="btn btn-secondary btn-block">View Details & Directions</button>
-          </div>
+
         </div>
-      </div>
-    </section>
+
+    </div>
+
+</section>
 
     <!-- ==================== 11. BMI CALCULATOR SECTION ==================== -->
     <section id="bmi" class="section bg-light">
@@ -1028,6 +1247,11 @@
       </div>
     </div>
   </footer>
+
+
+
+<script src="../assets/js/nearby_hospitals.js"></script>
+
 
 </body>
 </html>
