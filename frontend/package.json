@@ -1,0 +1,10 @@
+{
+  "name": "healthai-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "HealthAI Vanilla HTML, CSS, and JavaScript frontend",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

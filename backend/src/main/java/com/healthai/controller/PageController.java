@@ -78,6 +78,10 @@ public class PageController {
         return servePage("signup.html");
     }
 
+    @GetMapping("/favicon.ico")
+    public ResponseEntity<Void> favicon() {
+        return ResponseEntity.noContent().build();
+    }
 
     // =====================================================
     // Serve Frontend HTML

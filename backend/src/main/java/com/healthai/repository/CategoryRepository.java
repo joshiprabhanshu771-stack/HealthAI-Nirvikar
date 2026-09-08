@@ -1,0 +1,8 @@
+package com.healthai.repository;
+
+import com.healthai.entity.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository
+        extends JpaRepository<Category, Long> {
+}
