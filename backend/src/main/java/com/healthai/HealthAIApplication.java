@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class HealthAIApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HealthAIApplication.class, args);
+        SpringApplication.run(
+                HealthAIApplication.class,
+                args
+        );
     }
 }

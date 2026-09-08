@@ -27,7 +27,7 @@ public class FlywayConfig {
     @Value("${spring.flyway.enabled:true}")
     private boolean flywayEnabled;
 
-    @Bean(initMethod = "migrate")
+    @Bean
     public Flyway flyway(DataSource dataSource) {
         if (!flywayEnabled) {
             logger.info("Flyway migration is disabled via spring.flyway.enabled=false");
@@ -41,6 +41,10 @@ public class FlywayConfig {
                 .locations(migrationLocations.split(","))
                 .baselineOnMigrate(baselineOnMigrate)
                 .load();
+
+        // Remove any failed migration records from flyway_schema_history before applying
+        flyway.repair();
+        flyway.migrate();
 
         return flyway;
     }

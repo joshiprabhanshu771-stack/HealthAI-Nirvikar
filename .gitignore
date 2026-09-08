@@ -20,3 +20,13 @@ nbdist/
 # Environment / secrets
 .env
 .env.*
+
+# Node / frontend
+node_modules/
+dist/
+
+# Generated reports and scratch test files
+backend/reports/
+backend/*.xml
+!backend/pom.xml
+backend/*response*.json

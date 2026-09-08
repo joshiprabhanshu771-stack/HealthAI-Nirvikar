@@ -1,16 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HealthAI - Login</title>
+<title>HealthAI - Login</title>
 
-    <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+```
 
 </head>
 
@@ -18,105 +20,223 @@
 
 <div class="auth-container">
 
-    <div class="auth-card">
+```
+<div class="auth-card">
 
-        <!-- Logo -->
-        <div class="logo">
-            <span>Health</span><strong>AI</strong>
+    <!-- Logo -->
+    <div class="logo">
+        <span>Health</span><strong>AI</strong>
+    </div>
+
+
+    <!-- Heading -->
+    <h1>Welcome Back</h1>
+
+    <p class="subtitle">
+        Login to continue to HealthAI
+    </p>
+
+
+    <!-- Login Form -->
+    <form id="loginForm">
+
+        <!-- Email -->
+        <div class="input-group">
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required>
+
         </div>
 
 
-        <!-- Heading -->
-        <h1>Welcome Back</h1>
+        <!-- Password -->
+        <div class="input-group">
 
-        <p class="subtitle">
-            Login to continue to HealthAI
-        </p>
+            <label for="password">
+                Password
+            </label>
 
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required>
 
-        <!-- Login Form -->
-        <form action="/login" method="post">
-
-            <!-- Email -->
-            <div class="input-group">
-
-                <label for="email">
-                    Email Address
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required>
-
-            </div>
+        </div>
 
 
-            <!-- Password -->
-            <div class="input-group">
+        <!-- Remember / Forgot -->
+        <div class="login-options">
 
-                <label for="password">
-                    Password
-                </label>
+            <label class="remember-me">
 
                 <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    required>
+                    type="checkbox"
+                    id="remember">
 
-            </div>
+                <span>Remember me</span>
 
+            </label>
 
-            <!-- Remember / Forgot -->
-            <div class="login-options">
-
-                <label class="remember-me">
-
-                    <input
-                        type="checkbox"
-                        id="remember">
-
-                    <span>Remember me</span>
-
-                </label>
-
-                <a href="#" class="forgot-password">
-                    Forgot Password?
-                </a>
-
-            </div>
-
-
-            <!-- Login Button -->
-            <button
-                type="submit"
-                class="auth-button">
-
-                Login
-
-            </button>
-
-        </form>
-
-
-        <!-- Signup Link -->
-        <p class="switch-auth">
-
-            Don't have an account?
-
-            <a href="/signup">
-                Create Account
+            <a href="#" class="forgot-password">
+                Forgot Password?
             </a>
 
-        </p>
+        </div>
 
-    </div>
+
+        <!-- Error / Success Message -->
+        <div
+            id="loginMessage"
+            style="display:none; margin-bottom:15px; text-align:center;">
+        </div>
+
+
+        <!-- Login Button -->
+        <button
+            type="submit"
+            id="loginButton"
+            class="auth-button">
+
+            Login
+
+        </button>
+
+    </form>
+
+
+    <!-- Signup Link -->
+    <p class="switch-auth">
+
+        Don't have an account?
+
+        <a href="/signup">
+            Create Account
+        </a>
+
+    </p>
 
 </div>
+```
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", async function(event) {
+
+    // Prevent normal HTML form submission
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    const loginButton = document.getElementById("loginButton");
+    const loginMessage = document.getElementById("loginMessage");
+
+    // Clear previous message
+    loginMessage.style.display = "none";
+    loginMessage.textContent = "";
+
+    // Disable button while login request is running
+    loginButton.disabled = true;
+    loginButton.textContent = "Logging in...";
+
+    try {
+
+        const response = await fetch("/api/auth/login", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+
+        });
+
+
+        // Try to read backend response
+        let data = {};
+
+        try {
+            data = await response.json();
+        } catch (e) {
+            data = {};
+        }
+
+
+        // Login successful
+        if (response.ok) {
+
+            loginMessage.style.display = "block";
+            loginMessage.textContent = "Login successful! Redirecting...";
+
+            loginMessage.style.color = "green";
+
+
+            // Redirect to dashboard
+            setTimeout(function() {
+
+                window.location.href = "/user_dashboard.html";
+
+            }, 500);
+
+        }
+
+
+        // Login failed
+        else {
+
+            loginMessage.style.display = "block";
+
+            loginMessage.style.color = "red";
+
+            loginMessage.textContent =
+                data.message ||
+                data.error ||
+                "Invalid email or password.";
+
+            loginButton.disabled = false;
+            loginButton.textContent = "Login";
+
+        }
+
+    }
+
+
+    catch (error) {
+
+        console.error("Login error:", error);
+
+        loginMessage.style.display = "block";
+
+        loginMessage.style.color = "red";
+
+        loginMessage.textContent =
+            "Unable to connect to the server. Please try again.";
+
+        loginButton.disabled = false;
+        loginButton.textContent = "Login";
+
+    }
+
+});
+
+</script>
 
 </body>
 
