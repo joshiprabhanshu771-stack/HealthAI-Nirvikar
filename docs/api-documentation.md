@@ -23,4 +23,15 @@ Base URL: `http://localhost:8080`
 | GET | `/api/pregnancy-care/warning-signs` | List maternal red-flag warning signs and emergency protocols |
 | GET | `/api/pregnancy-care/calculate?lmp={YYYY-MM-DD}` | Calculate estimated due date, gestational age & stage from LMP |
 
-Legacy page paths redirect to the independently running frontend: `/`, `/dashboard`, `/home`, `/login`, `/signup`, `/wellness`, `/wellness/tips`, `/health-tips`, `/wellness/pregnancy`, `/pregnancy-care`, and `/pregnancy`.
+## Child Health Endpoints
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| GET | `/api/child-health/milestones` | List all age-stage developmental milestones |
+| GET | `/api/child-health/milestones/{ageGroup}` | Get milestone details for a specific age group |
+| GET | `/api/child-health/vaccines` | List all pediatric vaccines |
+| GET | `/api/child-health/vaccines?age={age}` | Filter vaccines by age stage |
+| GET | `/api/child-health/illnesses` | List common childhood illnesses and home care protocols |
+| GET | `/api/child-health/illnesses?category={cat}` | Filter illness guides by category |
+
+Legacy page paths redirect to the independently running frontend: `/`, `/dashboard`, `/home`, `/login`, `/signup`, `/wellness`, `/wellness/tips`, `/health-tips`, `/wellness/pregnancy`, `/pregnancy-care`, `/pregnancy`, `/wellness/child-health`, and `/child-health`.
