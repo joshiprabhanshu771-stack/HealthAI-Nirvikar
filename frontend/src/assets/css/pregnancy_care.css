@@ -1,0 +1,893 @@
+/* ==========================================================================
+   HealthAI — Pregnancy Care Module Stylesheet
+   Maternal Healthcare Design System
+   ========================================================================== */
+
+:root {
+  /* Maternal Theme Accents */
+  --maternal-pink: #e11d48;
+  --maternal-pink-dark: #be123c;
+  --maternal-pink-light: #ffe4e6;
+  --maternal-rose: #ec4899;
+  --maternal-rose-light: #fce7f3;
+  --maternal-purple: #8b5cf6;
+  --maternal-purple-light: #ede9fe;
+  --maternal-teal: #0d9488;
+  --maternal-teal-light: #ccfbf1;
+  --maternal-amber: #d97706;
+  --maternal-amber-light: #fef3c7;
+
+  /* Surfaces & Neutrals */
+  --bg-main: #ffffff;
+  --bg-light: #f8fafc;
+  --bg-subtle: #f1f5f9;
+  --bg-pink-subtle: #fff5f7;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+
+  /* Shadows & Radius */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 14px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 28px -4px rgba(15, 23, 42, 0.12);
+  --shadow-pink: 0 10px 25px -5px rgba(225, 29, 72, 0.2);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tag-pink-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  background-color: var(--maternal-pink-light);
+  color: var(--maternal-pink-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   1. Interactive Due Date / Gestational Age Calculator
+   ========================================================================== */
+.calc-wrapper {
+  background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+  border: 1px solid rgba(225, 29, 72, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--maternal-pink), var(--maternal-purple));
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.calc-form-pane h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.calc-form-pane p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.calc-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.calc-form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.calc-input-wrapper {
+  position: relative;
+}
+
+.calc-input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.75rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  font-family: inherit;
+  transition: var(--transition);
+  background: #ffffff;
+}
+
+.calc-input:focus {
+  border-color: var(--maternal-pink);
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.15);
+}
+
+.calc-icon-left {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--maternal-pink);
+  font-size: 1.1rem;
+}
+
+.calc-presets {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.preset-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.preset-btn:hover {
+  background: var(--maternal-pink-light);
+  color: var(--maternal-pink-dark);
+  border-color: var(--maternal-pink);
+}
+
+.btn-calculate {
+  background: linear-gradient(135deg, var(--maternal-pink), var(--maternal-rose));
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  box-shadow: var(--shadow-pink);
+  transition: var(--transition);
+}
+
+.btn-calculate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -4px rgba(225, 29, 72, 0.35);
+}
+
+/* Calculator Result Card */
+.calc-result-pane {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.result-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.result-due-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.result-due-date strong {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--maternal-pink);
+  margin-top: 0.2rem;
+}
+
+.trimester-pill {
+  padding: 0.4rem 0.9rem;
+  background: var(--maternal-purple-light);
+  color: var(--maternal-purple);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Gestational Progress Bar */
+.progress-container {
+  margin: 0.5rem 0;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--maternal-pink), var(--maternal-rose), var(--maternal-purple));
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+}
+
+.calc-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.metric-box {
+  background: var(--bg-light);
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.metric-box span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.metric-box strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.fruit-comparison-card {
+  background: var(--maternal-rose-light);
+  border-left: 4px solid var(--maternal-rose);
+  padding: 1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fruit-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--maternal-rose);
+  flex-shrink: 0;
+}
+
+.fruit-text h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.fruit-text p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. Trimester Tabs & Milestone Journey
+   ========================================================================== */
+.section-wrapper {
+  margin-bottom: 4rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-head-title h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.section-head-title p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.trimester-tabs {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--bg-subtle);
+  padding: 0.35rem;
+  border-radius: var(--radius-full);
+}
+
+.tab-btn {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  color: var(--maternal-pink);
+  box-shadow: var(--shadow-sm);
+}
+
+.trimester-content-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+  display: none;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.trimester-content-card.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.trimester-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.trimester-badge-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trimester-badge-title .t-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: var(--maternal-pink-light);
+  color: var(--maternal-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.trimester-badge-title h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.trimester-badge-title span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.trimester-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.detail-subcard {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.35rem;
+}
+
+.detail-subcard h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-subcard p, .detail-subcard ul {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.detail-subcard ul {
+  padding-left: 1.2rem;
+}
+
+.detail-subcard ul li {
+  margin-bottom: 0.4rem;
+}
+
+/* ==========================================================================
+   3. Prenatal Nutrition & Food Safety
+   ========================================================================== */
+.nutrition-filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.nutrition-filter-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nutrition-filter-btn.active, .nutrition-filter-btn:hover {
+  background: var(--maternal-teal-light);
+  color: var(--maternal-teal);
+  border-color: var(--maternal-teal);
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.nutrition-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.nutrition-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.nutrition-card.safe-food {
+  border-left: 4px solid var(--maternal-teal);
+}
+
+.nutrition-card.avoid-food {
+  border-left: 4px solid var(--maternal-pink);
+  background: #fffafa;
+}
+
+.nutrition-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.nutrition-title-grp {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nut-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.safe-icon { background: var(--maternal-teal-light); color: var(--maternal-teal); }
+.avoid-icon { background: var(--maternal-pink-light); color: var(--maternal-pink); }
+.essential-icon { background: var(--maternal-purple-light); color: var(--maternal-purple); }
+
+.nutrition-title-grp h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.nutrition-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.badge-essential { background: var(--maternal-purple-light); color: var(--maternal-purple); }
+.badge-safe { background: var(--maternal-teal-light); color: var(--maternal-teal); }
+.badge-avoid { background: var(--maternal-pink-light); color: var(--maternal-pink-dark); }
+
+.nutrition-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+.nut-meta-item {
+  font-size: 0.82rem;
+  background: var(--bg-light);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  margin-top: 0.4rem;
+}
+
+.nut-meta-item strong {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   4. Red Flags & Urgent Warning Signs
+   ========================================================================== */
+.warning-signs-banner {
+  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+  border: 1.5px solid #fecdd3;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.warning-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.warning-pulse-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #e11d48;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  animation: pulseWarning 2s infinite;
+}
+
+@keyframes pulseWarning {
+  0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); }
+  70% { box-shadow: 0 0 0 14px rgba(225, 29, 72, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+}
+
+.warning-header-text h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #9f1239;
+  margin-bottom: 0.25rem;
+}
+
+.warning-header-text p {
+  color: #881337;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.warning-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.warning-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  border: 1px solid #fecdd3;
+  box-shadow: 0 2px 6px rgba(159, 18, 57, 0.05);
+}
+
+.warning-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #9f1239;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.warning-urgency-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: #ffe4e6;
+  color: #be123c;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.warning-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+.action-highlight {
+  font-size: 0.82rem;
+  background: #fff5f5;
+  border-left: 3px solid #e11d48;
+  padding: 0.45rem 0.65rem;
+  border-radius: 0 4px 4px 0;
+  color: #881337;
+}
+
+/* ==========================================================================
+   5. Antenatal Care (ANC) & Vaccine Schedule
+   ========================================================================== */
+.timeline-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.anc-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.anc-step {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  position: relative;
+}
+
+.anc-step-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: var(--maternal-purple-light);
+  color: var(--maternal-purple);
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.anc-step h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.anc-step p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ==========================================================================
+   6. Wellness, Exercise & Hospital Bag Checklist
+   ========================================================================== */
+.split-wellness-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.wellness-feature-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.wellness-feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.checklist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-light);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.checklist-item:hover {
+  background: #ffffff;
+  border-color: var(--maternal-pink);
+}
+
+.checklist-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--maternal-pink);
+  cursor: pointer;
+}
+
+.checklist-item.checked {
+  text-decoration: line-through;
+  opacity: 0.65;
+  background: #f1f5f9;
+}
+
+/* Government Schemes Sub-grid */
+.schemes-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.scheme-box {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.scheme-box h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scheme-box p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .calc-grid, .split-wellness-grid, .trimester-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .anc-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .calc-metrics-grid, .schemes-mini-grid, .anc-timeline {
+    grid-template-columns: 1fr;
+  }
+  .trimester-tabs {
+    flex-direction: column;
+    border-radius: var(--radius-md);
+  }
+  .tab-btn {
+    text-align: center;
+  }
+}

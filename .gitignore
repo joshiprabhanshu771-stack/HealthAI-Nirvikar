@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 target/
 *.class
 *.log
@@ -29,4 +30,36 @@ dist/
 backend/reports/
 backend/*.xml
 !backend/pom.xml
-backend/*response*.json
+backend/*response*.json
+=======
+target/
+backend/target/
+*.class
+*.log
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.npm/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Environment / secrets
+.env
+.env.*
+>>>>>>> meenal

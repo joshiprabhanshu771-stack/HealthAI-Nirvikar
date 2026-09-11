@@ -616,18 +616,17 @@ document.addEventListener("DOMContentLoaded", () => {
             // Backend API
             // =============================================
 
-            const url =
-                `/api/hospitals/nearby?lat=${encodeURIComponent(latitude)}&lon=${encodeURIComponent(longitude)}&radius=${encodeURIComponent(radius)}`;
+           const apiUrl = `http://localhost:8080/api/hospitals/nearby?lat=${latitude}&lon=${longitude}&radius=${radius}`;
 
 
             console.log(
                 "Healthcare API URL:",
-                url
+                apiUrl
             );
 
 
             const response =
-                await fetch(url);
+                await fetch(apiUrl);
 
 
             if (!response.ok) {
