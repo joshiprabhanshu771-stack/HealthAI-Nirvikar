@@ -1,0 +1,689 @@
+/* ==========================================================================
+   HealthAI — Child Health & Pediatric Care Module Stylesheet
+   Pediatric & Emergency Healthcare Design System
+   ========================================================================== */
+
+:root {
+  /* Pediatric Theme Accents */
+  --child-green: #10b981;
+  --child-green-dark: #047857;
+  --child-green-light: #d1fae5;
+  --child-teal: #0d9488;
+  --child-teal-light: #ccfbf1;
+  --child-blue: #0284c7;
+  --child-blue-light: #e0f2fe;
+  --child-amber: #f59e0b;
+  --child-amber-light: #fef3c7;
+  --child-purple: #8b5cf6;
+  --child-purple-light: #ede9fe;
+  --child-red: #ef4444;
+  --child-red-light: #fee2e2;
+
+  /* Surfaces & Neutrals */
+  --bg-main: #ffffff;
+  --bg-light: #f8fafc;
+  --bg-subtle: #f1f5f9;
+  --bg-green-subtle: #f0fdf4;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+
+  /* Shadows & Radius */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 14px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 28px -4px rgba(15, 23, 42, 0.12);
+  --shadow-green: 0 10px 25px -5px rgba(16, 185, 129, 0.25);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tag-green-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  background-color: var(--child-green-light);
+  color: var(--child-green-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   1. Interactive Fever & Dehydration Assessment Triage Widget
+   ========================================================================== */
+.triage-wrapper {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.triage-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--child-green), var(--child-blue), var(--child-amber));
+}
+
+.triage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.triage-form h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.triage-form p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  margin-bottom: 1.25rem;
+}
+
+.triage-group {
+  margin-bottom: 1.2rem;
+}
+
+.triage-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+}
+
+.triage-select, .triage-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  font-family: inherit;
+  transition: var(--transition);
+  background: #ffffff;
+}
+
+.triage-select:focus, .triage-input:focus {
+  border-color: var(--child-green);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.btn-triage {
+  background: linear-gradient(135deg, var(--child-green), var(--child-teal));
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  box-shadow: var(--shadow-green);
+  transition: var(--transition);
+}
+
+.btn-triage:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -4px rgba(16, 185, 129, 0.35);
+}
+
+.triage-result-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.triage-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.severity-pill {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+}
+
+.severity-normal { background: #dcfce7; color: #15803d; }
+.severity-mild { background: #fef3c7; color: #b45309; }
+.severity-urgent { background: #ffedd5; color: #c2410c; }
+.severity-emergency { background: #fee2e2; color: #b91c1c; }
+
+/* ==========================================================================
+   2. Interactive Developmental Milestones Explorer
+   ========================================================================== */
+.section-wrapper {
+  margin-bottom: 4rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-head-title h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.section-head-title p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.milestone-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--bg-subtle);
+  padding: 0.35rem;
+  border-radius: var(--radius-full);
+  flex-wrap: wrap;
+}
+
+.milestone-tab-btn {
+  padding: 0.55rem 1.1rem;
+  border: none;
+  background: transparent;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.milestone-tab-btn.active {
+  background: #ffffff;
+  color: var(--child-green-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.milestone-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.milestone-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.milestone-title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.milestone-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--child-green-light);
+  color: var(--child-green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.milestone-title-group h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.milestone-title-group span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.milestone-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.pillar-box {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.pillar-box h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pillar-box p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.red-flag-alert {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-left: 4px solid var(--child-red);
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.red-flag-alert i {
+  color: var(--child-red);
+  font-size: 1.3rem;
+  margin-top: 0.15rem;
+}
+
+.red-flag-alert h5 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #9f1239;
+  margin-bottom: 0.25rem;
+}
+
+.red-flag-alert p {
+  font-size: 0.85rem;
+  color: #881337;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.parenting-tip-box {
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+  border-left: 4px solid var(--child-teal);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.parenting-tip-box strong {
+  color: #0f766e;
+  font-size: 0.88rem;
+}
+
+.parenting-tip-box p {
+  font-size: 0.85rem;
+  color: #115e59;
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. Pediatric Immunization Schedule Tracker
+   ========================================================================== */
+.vaccine-filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.vaccine-filter-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.vaccine-filter-btn.active, .vaccine-filter-btn:hover {
+  background: var(--child-blue-light);
+  color: var(--child-blue);
+  border-color: var(--child-blue);
+}
+
+.vaccine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.vaccine-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.vaccine-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--child-blue);
+}
+
+.vaccine-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.vaccine-card-header h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.vaccine-age-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: var(--child-blue-light);
+  color: var(--child-blue);
+}
+
+.vaccine-meta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.vaccine-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.vaccine-tag {
+  font-size: 0.75rem;
+  background: var(--bg-light);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   4. Pediatric Nutrition by Age Stage
+   ========================================================================== */
+.nutrition-stage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.stage-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--child-green);
+}
+
+.stage-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.stage-age-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--child-green-dark);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.stage-card p {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.stage-card ul {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+.stage-card ul li {
+  margin-bottom: 0.35rem;
+}
+
+/* ==========================================================================
+   5. Common Childhood Illnesses & Home Care
+   ========================================================================== */
+.illness-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.illness-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.illness-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.illness-card-head .ill-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--child-amber-light);
+  color: var(--child-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.illness-card-head h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ill-subbox {
+  background: var(--bg-light);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  margin-bottom: 0.65rem;
+}
+
+.ill-subbox strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.ill-subbox.danger-box {
+  background: #fff1f2;
+  border-left: 3px solid var(--child-red);
+}
+
+.ill-subbox.danger-box strong {
+  color: #9f1239;
+}
+
+.ill-subbox.danger-box p {
+  color: #881337;
+  margin: 0;
+}
+
+/* ==========================================================================
+   6. Emergency First Aid & Choking Protocols (Infant vs Child)
+   ========================================================================== */
+.emergency-choking-wrapper {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 4rem;
+}
+
+.choking-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.choking-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.choking-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.choking-steps {
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.choking-steps li {
+  margin-bottom: 0.6rem;
+}
+
+.choking-warning-note {
+  font-size: 0.82rem;
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  margin-top: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .triage-grid, .milestone-pillars-grid, .nutrition-stage-grid, .choking-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .milestone-tabs {
+    flex-direction: column;
+    border-radius: var(--radius-md);
+  }
+  .milestone-tab-btn {
+    text-align: center;
+  }
+}

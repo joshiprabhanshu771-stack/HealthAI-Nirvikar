@@ -1,142 +1,61 @@
 package com.healthai.controller;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
+@RequestMapping
 public class PageController {
 
-    private final Path frontendPages =
-            Paths.get("C:/Users/PILR/Desktop/HealthAI/frontend/pages");
+    private final String frontendUrl;
 
-
-    // =====================================================
-    // Home / Main Dashboard
-    // =====================================================
-
-    @GetMapping("/")
-    public ResponseEntity<Resource> home() {
-        return servePage("user_dashboard.html");
+    public PageController(@org.springframework.beans.factory.annotation.Value("${app.frontend.url:http://localhost:5173}") String frontendUrl) {
+        this.frontendUrl = frontendUrl.replaceAll("/$", "");
     }
 
-
-    // =====================================================
-    // Dashboard
-    // =====================================================
-
-    @GetMapping("/dashboard")
-    public ResponseEntity<Resource> dashboard() {
-        return servePage("user_dashboard.html");
+    @GetMapping({"/", "/dashboard", "/home"})
+    public RedirectView home() {
+        return redirect("/src/pages/user_dashboard.html");
     }
-
-
-    // =====================================================
-    // User Dashboard HTML
-    // =====================================================
-
-    @GetMapping("/user_dashboard.html")
-    public ResponseEntity<Resource> userDashboard() {
-        return servePage("user_dashboard.html");
-    }
-
-
-    // =====================================================
-    // Login
-    // =====================================================
 
     @GetMapping("/login")
-    public ResponseEntity<Resource> loginPage() {
-        return servePage("login.html");
+    public RedirectView login() {
+        return redirect("/src/pages/login.html");
     }
-
-
-    @GetMapping("/login.html")
-    public ResponseEntity<Resource> login() {
-        return servePage("login.html");
-    }
-
-
-    // =====================================================
-    // Signup
-    // =====================================================
 
     @GetMapping("/signup")
-    public ResponseEntity<Resource> signupPage() {
-        return servePage("signup.html");
+    public RedirectView signup() {
+        return redirect("/src/pages/signup.html");
     }
 
-
-    @GetMapping("/signup.html")
-    public ResponseEntity<Resource> signup() {
-        return servePage("signup.html");
+    @GetMapping("/wellness")
+    public RedirectView wellness() {
+        return redirect("/src/pages/health_and_wellness.html");
     }
 
-    @GetMapping("/favicon.ico")
-    public ResponseEntity<Void> favicon() {
-        return ResponseEntity.noContent().build();
+    @GetMapping({"/wellness/tips", "/health-tips"})
+    public RedirectView healthTips() {
+        return redirect("/src/pages/health_tips.html");
     }
 
-    // =====================================================
-    // Serve Frontend HTML
-    // =====================================================
+    @GetMapping({"/wellness/pregnancy", "/pregnancy-care", "/pregnancy"})
+    public RedirectView pregnancyCare() {
+        return redirect("/src/pages/pregnancy_care.html");
+    }
 
-    private ResponseEntity<Resource> servePage(
-            String fileName
-    ) {
+    @GetMapping({"/wellness/child-health", "/child-health", "/pediatrics"})
+    public RedirectView childHealth() {
+        return redirect("/src/pages/child_health.html");
+    }
 
-        try {
+    @GetMapping({"/services/blood-donation", "/blood-donation", "/donors"})
+    public RedirectView bloodDonation() {
+        return redirect("/src/pages/blood_donation.html");
+    }
 
-            Path filePath =
-                    frontendPages
-                            .resolve(fileName)
-                            .normalize();
-
-
-            Resource resource =
-                    new UrlResource(
-                            filePath.toUri()
-                    );
-
-
-            if (
-                    !resource.exists() ||
-                    !resource.isReadable()
-            ) {
-
-                System.out.println(
-                        "Frontend page not found: "
-                        + filePath
-                );
-
-                return ResponseEntity
-                        .notFound()
-                        .build();
-            }
-
-
-            return ResponseEntity
-                    .ok()
-                    .contentType(
-                            MediaType.TEXT_HTML
-                    )
-                    .body(resource);
-
-        }
-
-        catch (Exception e) {
-
-            e.printStackTrace();
-
-            return ResponseEntity
-                    .internalServerError()
-                    .build();
-        }
+    private RedirectView redirect(String path) {
+        return new RedirectView(frontendUrl + path);
     }
 }

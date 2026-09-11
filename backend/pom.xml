@@ -36,7 +36,7 @@
          Java
          ===================================================== -->
     <properties>
-        <java.version>25</java.version>
+        <java.version>21</java.version>
         <start-class>com.healthai.HealthAIApplication</start-class>
     </properties>
 
@@ -62,6 +62,12 @@
     <artifactId>spring-boot-starter-jackson</artifactId>
 </dependency>
 
+
+        <!-- Jackson Databind for JSON processing -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
 
         <!-- Spring Data JPA -->
         <dependency>
@@ -96,7 +102,6 @@
     <artifactId>flyway-core</artifactId>
 </dependency>
 
-<!-- Flyway MySQL Support -->
 <dependency>
     <groupId>org.flywaydb</groupId>
     <artifactId>flyway-mysql</artifactId>
