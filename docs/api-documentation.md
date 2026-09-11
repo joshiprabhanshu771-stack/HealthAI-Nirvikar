@@ -34,6 +34,18 @@ Base URL: `http://localhost:8080`
 | GET | `/api/child-health/illnesses` | List common childhood illnesses and home care protocols |
 | GET | `/api/child-health/illnesses?category={cat}` | Filter illness guides by category |
 
+## Blood Donation & Donor Portal Endpoints
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| POST | `/api/blood-donation/donors` | Register a new voluntary blood donor |
+| GET | `/api/blood-donation/donors` | Search & filter blood donors by blood group, city, and availability |
+| POST | `/api/blood-donation/requests` | Post an emergency blood requirement request |
+| GET | `/api/blood-donation/requests` | List and filter active emergency blood requests |
+| PUT | `/api/blood-donation/requests/{id}/fulfill` | Mark an emergency blood request as fulfilled |
+| GET | `/api/blood-donation/banks` | List verified regional blood centres and banks by city |
+| GET | `/api/blood-donation/compatibility?bloodGroup={grp}` | Get full red cell & plasma compatibility rules |
+
 ## Third-Party Medical & Clinical Endpoints (10,000+ Conditions & Cures)
 
 | Method | Path | Purpose |
@@ -43,4 +55,4 @@ Base URL: `http://localhost:8080`
 | GET | `/api/external/pediatric-guidance?condition={term}` | Live search pediatric safety guidelines, child warnings, and dosage |
 | GET | `/api/external/pregnancy-safety?query={term}` | Live search maternal, pregnancy, and lactation safety precautions |
 
-Legacy page paths redirect to the independently running frontend: `/`, `/dashboard`, `/home`, `/login`, `/signup`, `/wellness`, `/wellness/tips`, `/health-tips`, `/wellness/pregnancy`, `/pregnancy-care`, `/pregnancy`, `/wellness/child-health`, and `/child-health`.
+Legacy page paths redirect to the independently running frontend: `/`, `/dashboard`, `/home`, `/login`, `/signup`, `/wellness`, `/wellness/tips`, `/health-tips`, `/wellness/pregnancy`, `/pregnancy-care`, `/pregnancy`, `/wellness/child-health`, `/child-health`, `/services/blood-donation`, and `/blood-donation`.

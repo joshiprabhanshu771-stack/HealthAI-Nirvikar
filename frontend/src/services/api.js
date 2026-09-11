@@ -66,3 +66,63 @@ export async function getChildIllnessGuides(category = '') {
   }
   return response.json();
 }
+
+export async function getBloodDonors(bloodGroup = '', city = '') {
+  let url = `${API_BASE_URL}/api/blood-donation/donors`;
+  const params = [];
+  if (bloodGroup && bloodGroup !== 'All') params.push(`bloodGroup=${encodeURIComponent(bloodGroup)}`);
+  if (city) params.push(`city=${encodeURIComponent(city)}`);
+  if (params.length > 0) url += `?${params.join('&')}`;
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Blood donors request failed: ${response.status}`);
+  }
+  return response.json();
+}
+
+export async function registerBloodDonor(donorData) {
+  const response = await fetch(`${API_BASE_URL}/api/blood-donation/donors`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(donorData)
+  });
+  if (!response.ok) {
+    throw new Error(`Donor registration failed: ${response.status}`);
+  }
+  return response.json();
+}
+
+export async function getBloodRequests(bloodGroup = '', status = '') {
+  let url = `${API_BASE_URL}/api/blood-donation/requests`;
+  const params = [];
+  if (bloodGroup && bloodGroup !== 'All') params.push(`bloodGroup=${encodeURIComponent(bloodGroup)}`);
+  if (status && status !== 'All') params.push(`status=${encodeURIComponent(status)}`);
+  if (params.length > 0) url += `?${params.join('&')}`;
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Blood requests request failed: ${response.status}`);
+  }
+  return response.json();
+}
+
+export async function createBloodRequest(reqData) {
+  const response = await fetch(`${API_BASE_URL}/api/blood-donation/requests`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(reqData)
+  });
+  if (!response.ok) {
+    throw new Error(`Blood request creation failed: ${response.status}`);
+  }
+  return response.json();
+}
+
+export async function getBloodCompatibility(bloodGroup = 'O+') {
+  const response = await fetch(`${API_BASE_URL}/api/blood-donation/compatibility?bloodGroup=${encodeURIComponent(bloodGroup)}`);
+  if (!response.ok) {
+    throw new Error(`Compatibility request failed: ${response.status}`);
+  }
+  return response.json();
+}

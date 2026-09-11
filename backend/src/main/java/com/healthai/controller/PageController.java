@@ -50,6 +50,11 @@ public class PageController {
         return redirect("/src/pages/child_health.html");
     }
 
+    @GetMapping({"/services/blood-donation", "/blood-donation", "/donors"})
+    public RedirectView bloodDonation() {
+        return redirect("/src/pages/blood_donation.html");
+    }
+
     private RedirectView redirect(String path) {
         return new RedirectView(frontendUrl + path);
     }
