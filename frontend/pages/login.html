@@ -4,15 +4,13 @@
 
 <head>
 
-```
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HealthAI - Login</title>
+    <title>HealthAI - Login</title>
 
-<link rel="stylesheet" href="../assets/css/style.css">
-```
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
@@ -20,223 +18,489 @@
 
 <div class="auth-container">
 
-```
-<div class="auth-card">
+    <div class="auth-card">
 
-    <!-- Logo -->
-    <div class="logo">
-        <span>Health</span><strong>AI</strong>
-    </div>
-
-
-    <!-- Heading -->
-    <h1>Welcome Back</h1>
-
-    <p class="subtitle">
-        Login to continue to HealthAI
-    </p>
-
-
-    <!-- Login Form -->
-    <form id="loginForm">
-
-        <!-- Email -->
-        <div class="input-group">
-
-            <label for="email">
-                Email Address
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email"
-                required>
-
+        <!-- Logo -->
+        <div class="logo">
+            <span>Health</span><strong>AI</strong>
         </div>
 
 
-        <!-- Password -->
-        <div class="input-group">
+        <!-- Heading -->
+        <h1>Welcome Back</h1>
 
-            <label for="password">
-                Password
-            </label>
-
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                required>
-
-        </div>
+        <p class="subtitle">
+            Login to continue to HealthAI
+        </p>
 
 
-        <!-- Remember / Forgot -->
-        <div class="login-options">
+        <!-- Login Form -->
+        <form id="loginForm">
 
-            <label class="remember-me">
+            <!-- Email -->
+            <div class="input-group">
+
+                <label for="email">
+                    Email Address
+                </label>
 
                 <input
-                    type="checkbox"
-                    id="remember">
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
 
-                <span>Remember me</span>
+            </div>
 
-            </label>
 
-            <a href="#" class="forgot-password">
-                Forgot Password?
+            <!-- Password -->
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required>
+
+                <!-- Show Password -->
+                <label
+                    style="
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        margin-top: 8px;
+                        font-size: 14px;
+                        cursor: pointer;
+                    ">
+
+                    <input
+                        type="checkbox"
+                        id="showPassword"
+                        style="width: auto;">
+
+                    <span>Show Password</span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Remember / Forgot -->
+            <div class="login-options">
+
+                <label class="remember-me">
+
+                    <input
+                        type="checkbox"
+                        id="remember">
+
+                    <span>Remember me</span>
+
+                </label>
+
+                <a
+                    href="#"
+                    class="forgot-password">
+
+                    Forgot Password?
+
+                </a>
+
+            </div>
+
+
+            <!-- Error / Success Message -->
+            <div
+                id="loginMessage"
+                style="
+                    display: none;
+                    margin-bottom: 15px;
+                    text-align: center;
+                ">
+            </div>
+
+
+            <!-- Login Button -->
+            <button
+                type="submit"
+                id="loginButton"
+                class="auth-button">
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <!-- Signup Link -->
+        <p class="switch-auth">
+
+            Don't have an account?
+
+            <a href="/signup">
+                Create Account
             </a>
 
-        </div>
+        </p>
 
-
-        <!-- Error / Success Message -->
-        <div
-            id="loginMessage"
-            style="display:none; margin-bottom:15px; text-align:center;">
-        </div>
-
-
-        <!-- Login Button -->
-        <button
-            type="submit"
-            id="loginButton"
-            class="auth-button">
-
-            Login
-
-        </button>
-
-    </form>
-
-
-    <!-- Signup Link -->
-    <p class="switch-auth">
-
-        Don't have an account?
-
-        <a href="/signup">
-            Create Account
-        </a>
-
-    </p>
+    </div>
 
 </div>
-```
 
-</div>
 
 <script>
 
-document.getElementById("loginForm").addEventListener("submit", async function(event) {
-
-    // Prevent normal HTML form submission
-    event.preventDefault();
-
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-
-    const loginButton = document.getElementById("loginButton");
-    const loginMessage = document.getElementById("loginMessage");
-
-    // Clear previous message
-    loginMessage.style.display = "none";
-    loginMessage.textContent = "";
-
-    // Disable button while login request is running
-    loginButton.disabled = true;
-    loginButton.textContent = "Logging in...";
-
-    try {
-
-        const response = await fetch("/api/auth/login", {
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-
-        });
+document.addEventListener("DOMContentLoaded", function () {
 
 
-        // Try to read backend response
-        let data = {};
+    // ============================================================
+    // SHOW / HIDE PASSWORD
+    // ============================================================
 
-        try {
-            data = await response.json();
-        } catch (e) {
-            data = {};
-        }
+    const passwordInput =
+        document.getElementById("password");
 
-
-        // Login successful
-        if (response.ok) {
-
-            loginMessage.style.display = "block";
-            loginMessage.textContent = "Login successful! Redirecting...";
-
-            loginMessage.style.color = "green";
+    const showPasswordCheckbox =
+        document.getElementById("showPassword");
 
 
-            // Redirect to dashboard
-            setTimeout(function() {
+    showPasswordCheckbox.addEventListener(
+        "change",
+        function () {
 
-                window.location.href = "/user_dashboard.html";
+            if (this.checked) {
 
-            }, 500);
+                passwordInput.type = "text";
+
+            } else {
+
+                passwordInput.type = "password";
+
+            }
 
         }
+    );
 
 
-        // Login failed
-        else {
+    // ============================================================
+    // LOGIN FORM
+    // ============================================================
 
-            loginMessage.style.display = "block";
+    const loginForm =
+        document.getElementById("loginForm");
 
-            loginMessage.style.color = "red";
+    loginForm.addEventListener(
+        "submit",
+        async function (event) {
 
-            loginMessage.textContent =
-                data.message ||
-                data.error ||
-                "Invalid email or password.";
+            // Prevent normal form submission
+            event.preventDefault();
 
-            loginButton.disabled = false;
-            loginButton.textContent = "Login";
+
+            // ====================================================
+            // GET FORM VALUES
+            // ====================================================
+
+            const email =
+                document.getElementById("email")
+                .value
+                .trim();
+
+            const password =
+                document.getElementById("password")
+                .value;
+
+
+            const loginButton =
+                document.getElementById("loginButton");
+
+            const loginMessage =
+                document.getElementById("loginMessage");
+
+
+            // ====================================================
+            // CLEAR PREVIOUS MESSAGE
+            // ====================================================
+
+            loginMessage.style.display = "none";
+            loginMessage.textContent = "";
+
+
+            // ====================================================
+            // DISABLE LOGIN BUTTON
+            // ====================================================
+
+            loginButton.disabled = true;
+            loginButton.textContent = "Logging in...";
+
+
+            try {
+
+
+                // =================================================
+                // SEND LOGIN REQUEST
+                // =================================================
+
+                const response = await fetch(
+                    "/api/auth/login",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            email: email,
+                            password: password
+                        })
+                    }
+                );
+
+
+                // =================================================
+                // READ BACKEND RESPONSE
+                // =================================================
+
+                let data = {};
+
+                try {
+
+                    data = await response.json();
+
+                } catch (jsonError) {
+
+                    console.error(
+                        "Could not read login response as JSON.",
+                        jsonError
+                    );
+
+                    data = {};
+
+                }
+
+
+                // =================================================
+                // DEBUG INFORMATION
+                // =================================================
+
+                console.log(
+                    "Login HTTP Status:",
+                    response.status
+                );
+
+                console.log(
+                    "Login API Response:",
+                    data
+                );
+
+
+                // =================================================
+                // LOGIN SUCCESSFUL
+                // =================================================
+
+                if (response.ok) {
+
+
+                    // ---------------------------------------------
+                    // CHECK USER ID
+                    // ---------------------------------------------
+
+                    if (
+                        data.userId === undefined ||
+                        data.userId === null
+                    ) {
+
+                        console.error(
+                            "ERROR: userId is missing from backend response.",
+                            data
+                        );
+
+
+                        loginMessage.style.display =
+                            "block";
+
+                        loginMessage.style.color =
+                            "red";
+
+                        loginMessage.textContent =
+                            "Login successful, but user ID was not received from server.";
+
+
+                        loginButton.disabled =
+                            false;
+
+                        loginButton.textContent =
+                            "Login";
+
+
+                        return;
+                    }
+
+
+                    // =================================================
+                    // SAVE USER INFORMATION
+                    // =================================================
+
+                    localStorage.setItem(
+                        "healthAIUserId",
+                        String(data.userId)
+                    );
+
+                    localStorage.setItem(
+                        "healthAIUserName",
+                        data.name || ""
+                    );
+
+                    localStorage.setItem(
+                        "healthAIUserEmail",
+                        data.email || ""
+                    );
+
+
+                    // =================================================
+                    // VERIFY LOCAL STORAGE
+                    // =================================================
+
+                    console.log(
+                        "================================="
+                    );
+
+                    console.log(
+                        "HealthAI Login Successful"
+                    );
+
+                    console.log(
+                        "User ID:",
+                        data.userId
+                    );
+
+                    console.log(
+                        "User Name:",
+                        data.name
+                    );
+
+                    console.log(
+                        "User Email:",
+                        data.email
+                    );
+
+                    console.log(
+                        "Saved User ID:",
+                        localStorage.getItem(
+                            "healthAIUserId"
+                        )
+                    );
+
+                    console.log(
+                        "================================="
+                    );
+
+
+                    // =================================================
+                    // SUCCESS MESSAGE
+                    // =================================================
+
+                    loginMessage.style.display =
+                        "block";
+
+                    loginMessage.style.color =
+                        "green";
+
+                    loginMessage.textContent =
+                        "Login successful! Redirecting...";
+
+
+                    // =================================================
+                    // REDIRECT TO DASHBOARD
+                    // =================================================
+
+                    setTimeout(
+                        function () {
+
+                            window.location.href =
+                                "/user_dashboard.html";
+
+                        },
+                        500
+                    );
+
+                }
+
+
+                // =================================================
+                // LOGIN FAILED
+                // =================================================
+
+                else {
+
+                    loginMessage.style.display =
+                        "block";
+
+                    loginMessage.style.color =
+                        "red";
+
+                    loginMessage.textContent =
+                        data.message ||
+                        data.error ||
+                        "Invalid email or password.";
+
+
+                    loginButton.disabled =
+                        false;
+
+                    loginButton.textContent =
+                        "Login";
+
+                }
+
+            }
+
+
+            // =====================================================
+            // NETWORK / SERVER ERROR
+            // =====================================================
+
+            catch (error) {
+
+                console.error(
+                    "Login error:",
+                    error
+                );
+
+
+                loginMessage.style.display =
+                    "block";
+
+                loginMessage.style.color =
+                    "red";
+
+                loginMessage.textContent =
+                    "Unable to connect to the server. Please try again.";
+
+
+                loginButton.disabled =
+                    false;
+
+                loginButton.textContent =
+                    "Login";
+
+            }
 
         }
-
-    }
-
-
-    catch (error) {
-
-        console.error("Login error:", error);
-
-        loginMessage.style.display = "block";
-
-        loginMessage.style.color = "red";
-
-        loginMessage.textContent =
-            "Unable to connect to the server. Please try again.";
-
-        loginButton.disabled = false;
-        loginButton.textContent = "Login";
-
-    }
+    );
 
 });
 
 </script>
+
 
 </body>
 
