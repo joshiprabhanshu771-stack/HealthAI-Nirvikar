@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "scheme_name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana",
+    "short_description": "Provides cashless hospitalisation coverage for eligible poor and vulnerable families for secondary and tertiary healthcare services.",
+    "category": "Health Insurance",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Eligibility is based on government-defined deprivation and occupational criteria for rural and urban beneficiaries.",
+    "official_url": "https://www.myscheme.gov.in/hi/schemes/ab-pmjay"
+  },
+  {
+    "id": 2,
+    "scheme_name": "Pradhan Mantri Matru Vandana Yojana",
+    "short_description": "A maternity benefit scheme providing financial support to eligible pregnant and lactating women.",
+    "category": "Women & Maternal Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "The scheme covers eligible women from specified socially and economically disadvantaged categories, subject to the current scheme guidelines.",
+    "official_url": "https://www.spniwcd.wcd.gov.in/pradhan-mantri-matru-vandana-yojna"
+  },
+  {
+    "id": 3,
+    "scheme_name": "Janani Suraksha Yojana",
+    "short_description": "A safe motherhood intervention under the National Health Mission that promotes institutional delivery and aims to reduce maternal and neonatal mortality.",
+    "category": "Women & Maternal Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Eligibility for cash assistance depends on the applicable state category and beneficiary criteria, including conditions related to BPL, SC/ST status and institutional delivery.",
+    "official_url": "https://nhm.gov.in/images/pdf/programmes/family-planing/guidelines/RMNCAH%2BN_Manual_on_Counseling_2021.pdf"
+  },
+  {
+    "id": 4,
+    "scheme_name": "Janani Shishu Suraksha Karyakram",
+    "short_description": "Provides free and cashless delivery services and healthcare entitlements for pregnant women and sick newborns and infants in public health institutions.",
+    "category": "Women & Maternal Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Pregnant women accessing public health institutions and eligible sick newborns and infants can receive services according to the programme guidelines.",
+    "official_url": "https://nhm.gov.in/images/pdf/programmes/jssk/guidelines/guidelines_for_jssk.pdf"
+  },
+  {
+    "id": 5,
+    "scheme_name": "Pradhan Mantri Surakshit Matritva Abhiyan",
+    "short_description": "Provides a minimum package of antenatal care services to pregnant women through government health facilities, with special attention to identifying high-risk pregnancies.",
+    "category": "Women & Maternal Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Pregnant women can access the programme's antenatal care services at participating government health facilities according to programme guidelines.",
+    "official_url": "https://nhm.gov.in/images/pdf/programmes/maternal-health/guidelines/Pradhan_Mantri_Surakshit_Matritva_Abhiyan.pdf"
+  }
+]   

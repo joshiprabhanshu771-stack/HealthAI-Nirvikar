@@ -1,0 +1,342 @@
+[
+  {
+    "id": 1,
+    "scheme_name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (AB-PMJAY)",
+    "short_description": "Provides cashless secondary and tertiary hospitalization coverage of up to Rs. 5 lakh per family per year to poor and vulnerable families.",
+    "category": "Health Insurance",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Families identified based on SECC 2011 deprivation and occupational criteria for rural and urban areas, RSBY beneficiaries, and senior citizens aged 70+ irrespective of income.",
+    "official_url": "https://pmjay.gov.in"
+  },
+  {
+    "id": 2,
+    "scheme_name": "Pradhan Mantri Matru Vandana Yojana (PMMVY)",
+    "short_description": "A direct benefit transfer maternity incentive scheme providing financial assistance to pregnant women and lactating mothers for health and nutrition.",
+    "category": "Women & Maternal Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Pregnant and lactating women for their first living child (and second child if girl child) belonging to socially and economically disadvantaged sections as per MoWCD norms.",
+    "official_url": "https://wcd.gov.in/schemes/pradhan-mantri-matru-vandana-yojana"
+  },
+  {
+    "id": 3,
+    "scheme_name": "Janani Suraksha Yojana (JSY)",
+    "short_description": "A safe motherhood intervention under the National Health Mission that promotes institutional delivery through conditional cash transfers.",
+    "category": "Women & Maternal Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Eligible pregnant women delivering in government health centers or accredited private hospitals, specifically targeting low-performing states and BPL/SC/ST mothers.",
+    "official_url": "https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=841&lid=309"
+  },
+  {
+    "id": 4,
+    "scheme_name": "Janani Shishu Suraksha Karyakram (JSSK)",
+    "short_description": "Entitles pregnant women delivering in public health institutions and sick neonates up to 1 year of age to completely free and cashless healthcare services and transport.",
+    "category": "Women & Maternal Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "All pregnant women delivering in public health facilities and all sick infants up to 1 year accessing government healthcare institutions.",
+    "official_url": "https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=842&lid=310"
+  },
+  {
+    "id": 5,
+    "scheme_name": "Pradhan Mantri Surakshit Matritva Abhiyan (PMSMA)",
+    "short_description": "Ensures comprehensive and quality antenatal care (ANC) with free health checkups and specialist consultations to all pregnant women on the 9th of every month.",
+    "category": "Women & Maternal Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "All pregnant women in their 2nd and 3rd trimesters visiting designated public health facilities and participating private clinics.",
+    "official_url": "https://pmsma.mohfw.gov.in"
+  },
+  {
+    "id": 6,
+    "scheme_name": "Ayushman Bharat - Health and Wellness Centres (Ayushman Arogya Mandir)",
+    "short_description": "Transforms primary health centers into comprehensive primary healthcare centers providing free essential drugs, diagnostics, and wellness screening.",
+    "category": "Public Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Open to all citizens seeking comprehensive primary healthcare, wellness counseling, and screening for communicable and non-communicable diseases.",
+    "official_url": "https://ab-hwc.nhm.gov.in"
+  },
+  {
+    "id": 7,
+    "scheme_name": "Pradhan Mantri National Dialysis Programme (PMNDP)",
+    "short_description": "Provides free haemodialysis and peritoneal dialysis services to Below Poverty Line (BPL) patients and subsidized services to non-BPL patients at district hospitals.",
+    "category": "Treatment & Medical Assistance",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Patients suffering from end-stage renal disease (ESRD); fully free for Below Poverty Line (BPL) families at district hospitals under PPP mode.",
+    "official_url": "https://nhm.gov.in/index1.php?lang=1&level=2&sublinkid=1051&lid=615"
+  },
+  {
+    "id": 8,
+    "scheme_name": "Rashtriya Arogya Nidhi (RAN)",
+    "short_description": "Provides one-time financial assistance of up to Rs. 15 lakh to poor patients suffering from major life-threatening diseases for treatment at super-specialty government hospitals.",
+    "category": "Treatment & Medical Assistance",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Patients living below poverty line (BPL) suffering from specified life-threatening ailments treated at empanelled central government super-specialty hospitals.",
+    "official_url": "https://mohfw.gov.in/schemes-programmes/national-programmes/rashtriya-arogya-nidhi"
+  },
+  {
+    "id": 9,
+    "scheme_name": "National Tuberculosis Elimination Programme (NTEP) - Nikshay Poshan Yojana",
+    "short_description": "Provides free TB diagnosis and treatment along with a direct benefit transfer of Rs. 500 per month as nutritional support to all notified TB patients.",
+    "category": "Disease Control",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "All tuberculosis patients notified on the national Nikshay portal and undergoing active anti-tubercular treatment.",
+    "official_url": "https://tbcindia.gov.in"
+  },
+  {
+    "id": 10,
+    "scheme_name": "Rashtriya Bal Swasthya Karyakram (RBSK)",
+    "short_description": "A child health screening and early intervention initiative covering 4Ds: Defects at birth, Deficiencies, Diseases, and Developmental delays including disability.",
+    "category": "Child Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "All children from birth up to 18 years enrolled in government/aided schools, Anganwadi centers, and born at public health facilities.",
+    "official_url": "https://rbsk.gov.in"
+  },
+  {
+    "id": 11,
+    "scheme_name": "National Programme for Prevention and Control of Non-Communicable Diseases (NP-NCD)",
+    "short_description": "Provides screening, early diagnosis, and free treatment for hypertension, diabetes, and common cancers (oral, breast, and cervical) at primary and secondary healthcare levels.",
+    "category": "Disease Control",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "All adult citizens aged 30 years and above undergoing population-based NCD screening at Ayushman Arogya Mandirs and community centers.",
+    "official_url": "https://main.mohfw.gov.in/major-programmes/non-communicable-diseases-injury-trauma/non-communicable-disease"
+  },
+  {
+    "id": 12,
+    "scheme_name": "Mission Indradhanush / Universal Immunization Programme (UIP)",
+    "short_description": "Provides free vaccination against 12 vaccine-preventable life-threatening diseases for pregnant women and children across India.",
+    "category": "Immunization",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "All children up to 2 years of age and pregnant women who have missed or dropped out from routine immunization schedules.",
+    "official_url": "https://nhm.gov.in/index1.php?lang=1&level=2&sublinkid=823&lid=219"
+  },
+  {
+    "id": 13,
+    "scheme_name": "Ayushman Bharat Digital Mission (ABDM / ABHA)",
+    "short_description": "Enables citizens to create a 14-digit digital health ID (ABHA) to securely store, manage, and share electronic health records and diagnostic reports with doctors.",
+    "category": "Public Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Available to all citizens of India holding a valid Aadhaar card or mobile number.",
+    "official_url": "https://abdm.gov.in"
+  },
+  {
+    "id": 14,
+    "scheme_name": "Central Government Health Scheme (CGHS)",
+    "short_description": "Provides comprehensive medical care and outpatient/inpatient coverage to central government employees, pensioners, and their recognized dependents.",
+    "category": "Health Insurance",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Serving Central Government employees, pensioners, sitting and ex-Members of Parliament, and other eligible categories specified by MoHFW.",
+    "official_url": "https://cghs.nic.in"
+  },
+  {
+    "id": 15,
+    "scheme_name": "Ex-Servicemen Contributory Health Scheme (ECHS)",
+    "short_description": "Provides comprehensive all-inclusive healthcare and cashless treatment to retired Armed Forces personnel and their eligible dependants through polyclinics and empanelled hospitals.",
+    "category": "Senior Citizens",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Ex-servicemen pensioners from Army, Navy, Air Force, and their legally recognized dependants.",
+    "official_url": "https://echs.gov.in"
+  },
+  {
+    "id": 16,
+    "scheme_name": "National Mental Health Programme (NMHP) & Tele-MANAS",
+    "short_description": "Provides round-the-clock free mental health counseling, psychiatric tele-consultation, and treatment support across all Indian states and Union Territories.",
+    "category": "Mental Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Open to all individuals, students, youth, and families seeking psychological first-aid, stress management, or mental health support via toll-free helpline 14416.",
+    "official_url": "https://telemanas.mohfw.gov.in"
+  },
+  {
+    "id": 17,
+    "scheme_name": "National AIDS and STD Control Programme (NACP)",
+    "short_description": "Provides free HIV screening, counseling, antiretroviral therapy (ART), and viral load testing across public ART centres and link centers nationwide.",
+    "category": "Disease Control",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "All individuals seeking HIV testing, prevention services, or undergoing anti-retroviral treatment across NACO-designated health facilities.",
+    "official_url": "https://naco.gov.in"
+  },
+  {
+    "id": 18,
+    "scheme_name": "National Programme for Health Care of the Elderly (NPHCE)",
+    "short_description": "Dedicated healthcare program providing accessible, specialized, and comprehensive geriatric care at primary, district, and regional super-specialty levels.",
+    "category": "Senior Citizens",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Senior citizens aged 60 years and above seeking preventive, curative, and rehabilitative geriatric medical care.",
+    "official_url": "https://main.mohfw.gov.in/Major-Programmes/Non-Communicable-Diseases-Injury-Trauma/National-Programme-for-Health-Care-of-the-Elderly-NPHCE"
+  },
+  {
+    "id": 19,
+    "scheme_name": "National Programme for Prevention and Control of Deafness (NPPCD)",
+    "short_description": "Aims to prevent hearing loss, provide early screening for hearing impairments, and distribute free hearing aids and cochlear implants to eligible beneficiaries.",
+    "category": "Disability Health Support",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Persons with hearing impairment and children diagnosed with congenital or acquired hearing loss at public health screening centers.",
+    "official_url": "https://main.mohfw.gov.in/major-programmes/non-communicable-diseases-injury-trauma/national-programme-for-prevention-and-control-of-deafness-nppcd"
+  },
+  {
+    "id": 20,
+    "scheme_name": "PM Ayushman Bharat Health Infrastructure Mission (PM-ABHIM)",
+    "short_description": "Strengthens grassroots public health infrastructure, critical care hospital blocks, disease surveillance networks, and diagnostic laboratories across India.",
+    "category": "Public Health",
+    "scheme_type": "Central Scheme",
+    "state": "All India",
+    "eligibility": "Strengthens public healthcare systems; benefits all citizens accessing district public hospitals, block public health units, and diagnostic labs.",
+    "official_url": "https://pmabhim.mohfw.gov.in"
+  },
+  {
+    "id": 21,
+    "scheme_name": "Mahatma Jyotirao Phule Jan Arogya Yojana (MJPJAY)",
+    "short_description": "Cashless health insurance coverage of up to Rs. 5 lakh per family per year for identified surgical and medical procedures in Maharashtra.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Maharashtra",
+    "eligibility": "Families holding Yellow/Orange/White ration cards, Antyodaya Anna Yojana (AAY), or Annapurna cards residing in Maharashtra.",
+    "official_url": "https://www.jeevandayee.gov.in"
+  },
+  {
+    "id": 22,
+    "scheme_name": "Mukhyamantri Amrutum (MA) & MA Vatsalya Yojana",
+    "short_description": "Provides cashless medical and surgical treatment coverage of up to Rs. 5 lakh per family per year for catastrophic illnesses in Gujarat.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Gujarat",
+    "eligibility": "Families with annual family income up to Rs. 4 lakh, BPL families, accredited journalists, and senior citizens residing in Gujarat.",
+    "official_url": "https://magujarat.com"
+  },
+  {
+    "id": 23,
+    "scheme_name": "Chief Minister's Comprehensive Health Insurance Scheme (CMCHIS)",
+    "short_description": "Provides cashless hospitalisation coverage of up to Rs. 5 lakh per family per year for secondary and tertiary care in Tamil Nadu.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Tamil Nadu",
+    "eligibility": "Resident families of Tamil Nadu whose annual household income is below the prescribed threshold (Rs. 1.20 lakh/year) and Sri Lankan refugees.",
+    "official_url": "https://www.cmchistn.com"
+  },
+  {
+    "id": 24,
+    "scheme_name": "Dr. YSR Aarogyasri Health Scheme",
+    "short_description": "Provides cashless healthcare and tertiary inpatient medical treatment for serious ailments to poor and lower-middle-class families in Andhra Pradesh.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Andhra Pradesh",
+    "eligibility": "Families holding Dr. YSR Aarogyasri health cards or White ration cards with annual family income up to Rs. 5 lakh in Andhra Pradesh.",
+    "official_url": "https://aarogyasri.ap.gov.in"
+  },
+  {
+    "id": 25,
+    "scheme_name": "Biju Swasthya Kalyan Yojana (BSKY)",
+    "short_description": "Universal health coverage providing cashless medical treatment of up to Rs. 5 lakh per family (and Rs. 10 lakh for women members) per year in Odisha.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Odisha",
+    "eligibility": "All BSKY smart health card holders, NFSA card holders, and SFSS card holders residing in Odisha.",
+    "official_url": "https://bsky.odisha.gov.in"
+  },
+  {
+    "id": 26,
+    "scheme_name": "Mukhyamantri Chiranjeevi Swasthya Bima Yojana / Ayushman Rajasthan",
+    "short_description": "Provides universal health insurance coverage for cashless hospitalization across empanelled government and private hospitals in Rajasthan.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Rajasthan",
+    "eligibility": "All permanent resident families of Rajasthan (free for NFSA, SECC, small/marginal farmers, and subsidized for other families).",
+    "official_url": "https://chiranjeevi.rajasthan.gov.in"
+  },
+  {
+    "id": 27,
+    "scheme_name": "Karunya Arogya Suraksha Padhathi (KASP)",
+    "short_description": "Integrated health insurance scheme providing cashless secondary and tertiary hospitalization coverage of Rs. 5 lakh per family per year in Kerala.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Kerala",
+    "eligibility": "Poor and vulnerable families enrolled under PM-JAY and state priority beneficiary lists in Kerala.",
+    "official_url": "https://sha.kerala.gov.in/karunya-arogya-suraksha-padhathi"
+  },
+  {
+    "id": 28,
+    "scheme_name": "Ayushman Bharat - Mukhyamantri Jan Arogya Yojana (UP-MMJAY)",
+    "short_description": "Provides cashless treatment cover of up to Rs. 5 lakh per family per year for eligible families left out from SECC 2011 lists in Uttar Pradesh.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Uttar Pradesh",
+    "eligibility": "Eligible Antyodaya card holders, registered construction workers, and vulnerable families residing in Uttar Pradesh.",
+    "official_url": "https://sacchu.up.gov.in"
+  },
+  {
+    "id": 29,
+    "scheme_name": "Deen Dayal Swasthya Seva Yojana (DDSSY)",
+    "short_description": "Provides cashless hospitalization and surgical treatment coverage up to Rs. 4 lakh for families residing in Goa for over 5 years.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Goa",
+    "eligibility": "Any permanent resident family residing in the State of Goa for 5 years or more.",
+    "official_url": "https://goa.gov.in/departments/health-services"
+  },
+  {
+    "id": 30,
+    "scheme_name": "Mukhyamantri Amrit Yojana / Ayushman MP",
+    "short_description": "Provides financial assistance and cashless medical care for serious illnesses and emergency hospital care in Madhya Pradesh.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Madhya Pradesh",
+    "eligibility": "BPL card holders, Sambal card holders, and vulnerable families residing in Madhya Pradesh.",
+    "official_url": "https://ayushmanmp.in"
+  },
+  {
+    "id": 31,
+    "scheme_name": "Delhi Arogya Kosh (DAK) & Delhi Arogya Nidhi",
+    "short_description": "Provides financial assistance of up to Rs. 5 lakh for treatment of life-threatening diseases, surgeries, and high-end diagnostic tests in Delhi.",
+    "category": "Treatment & Medical Assistance",
+    "scheme_type": "State Scheme",
+    "state": "Delhi",
+    "eligibility": "Permanent residents of the National Capital Territory of Delhi with annual family income up to Rs. 3 lakh holding valid voter ID.",
+    "official_url": "https://delhi.gov.in/department/health-and-family-welfare"
+  },
+  {
+    "id": 32,
+    "scheme_name": "Arogya Karnataka / Ayushman Bharat-Arogya Karnataka (ArK)",
+    "short_description": "Universal health coverage initiative providing cashless and subsidized treatment at public health institutions and empanelled private hospitals in Karnataka.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "Karnataka",
+    "eligibility": "Eligible BPL (Priority Households) and APL (Non-priority) resident families of Karnataka.",
+    "official_url": "https://arogya.karnataka.gov.in"
+  },
+  {
+    "id": 33,
+    "scheme_name": "Atal Amrit Abhiyan",
+    "short_description": "Provides cashless medical treatment of up to Rs. 2 lakh per individual per year for 6 critical disease categories in Assam.",
+    "category": "Treatment & Medical Assistance",
+    "scheme_type": "State Scheme",
+    "state": "Assam",
+    "eligibility": "Families with annual income below Rs. 5 lakh residing in Assam; covering cardiovascular, cancer, kidney, neonatal, burns, and neurological disorders.",
+    "official_url": "https://atalamritabhiyan.assam.gov.in"
+  },
+  {
+    "id": 34,
+    "scheme_name": "Swasthya Sathi Scheme",
+    "short_description": "Provides universal health insurance coverage of up to Rs. 5 lakh per family per year with smart card issued in the name of the female head of the family in West Bengal.",
+    "category": "Health Insurance",
+    "scheme_type": "State Scheme",
+    "state": "West Bengal",
+    "eligibility": "All permanent resident families of West Bengal not covered under any other statutory government health scheme.",
+    "official_url": "https://swasthyasathi.gov.in"
+  }
+]
