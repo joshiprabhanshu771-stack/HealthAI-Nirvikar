@@ -130,9 +130,19 @@ public class AuthController {
         }
 
 
-        // Login successful
+        // ========================================================
+        // LOGIN SUCCESSFUL
+        // ========================================================
+
         response.put("success", true);
         response.put("message", "Login successful.");
+
+        // Send logged-in user's ID to frontend
+        response.put("userId", user.getId());
+
+        // Send user's basic information
+        response.put("name", user.getName());
+        response.put("email", user.getEmail());
 
         return ResponseEntity.ok(response);
     }

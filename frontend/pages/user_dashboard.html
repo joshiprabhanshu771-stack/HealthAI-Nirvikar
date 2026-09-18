@@ -16,6 +16,315 @@
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../assets/css/user_dashboard.css">
+
+
+
+<style id="healthai-bmi-dashboard-styles">
+
+/* ==================== BMI DASHBOARD ==================== */
+
+.bmi-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.bmi-data-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+  border: 1px solid rgba(15, 23, 42, 0.07);
+}
+
+.bmi-data-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.bmi-data-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.bmi-data-card-header h3 {
+  margin: 0 0 6px;
+}
+
+.bmi-data-card-header p {
+  margin: 0;
+  opacity: 0.7;
+}
+
+
+/* ==================== MINI STATS ==================== */
+
+.bmi-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.bmi-mini-stat {
+  padding: 16px;
+  border-radius: 14px;
+  background: #f7fafc;
+}
+
+.bmi-mini-stat span {
+  display: block;
+  font-size: 0.78rem;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.bmi-mini-stat strong {
+  font-size: 1.15rem;
+}
+
+
+/* ==================== TABLE ==================== */
+
+.bmi-table-wrap {
+  overflow-x: auto;
+}
+
+.bmi-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.bmi-history-table th,
+.bmi-history-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #edf0f3;
+}
+
+.bmi-history-table th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.7;
+}
+
+.bmi-category-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: #f1f5f9;
+}
+
+
+/* ==================== RANGE ==================== */
+
+.bmi-range-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.bmi-range-value {
+  padding: 18px;
+  border-radius: 14px;
+  background: #f7fafc;
+}
+
+.bmi-range-value span {
+  display: block;
+  opacity: 0.7;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.bmi-range-value strong {
+  font-size: 1.35rem;
+}
+
+
+/* ==================== GOAL ==================== */
+
+.bmi-goal-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.bmi-goal-form .form-group {
+  margin: 0;
+}
+
+.bmi-goal-progress {
+  margin-top: 18px;
+}
+
+.bmi-progress-track {
+  width: 100%;
+  height: 10px;
+  border-radius: 99px;
+  background: #e9eef3;
+  overflow: hidden;
+}
+
+.bmi-progress-bar {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  transition: width 0.35s ease;
+  background: #0f766e;
+}
+
+.bmi-goal-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.84rem;
+}
+
+
+/* ==================== NOTIFICATIONS ==================== */
+
+.bmi-notification-list {
+  display: grid;
+  gap: 10px;
+}
+
+.bmi-notification {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 13px;
+  background: #f7fafc;
+}
+
+.bmi-notification-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.bmi-notification-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.bmi-notification-content strong,
+.bmi-notification-content p {
+  display: block;
+  margin: 0;
+}
+
+.bmi-notification-content p {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  opacity: 0.8;
+}
+
+.bmi-notification-content small {
+  display: block;
+  margin-top: 7px;
+  opacity: 0.6;
+}
+
+
+/* ==================== LOADING / EMPTY / ERROR ==================== */
+
+.bmi-loading,
+.bmi-empty,
+.bmi-error {
+  padding: 18px;
+  border-radius: 12px;
+  background: #f7fafc;
+  text-align: center;
+  opacity: 0.78;
+}
+
+.bmi-error {
+  color: #b42318;
+  background: #fff4f2;
+}
+
+
+/* ==================== GRAPH ==================== */
+
+.bmi-chart-wrap {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  background: #fbfdff;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#bmiProgressCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 900px) {
+
+  .bmi-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bmi-data-card.full-width {
+    grid-column: auto;
+  }
+
+  .bmi-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .bmi-range-box {
+    grid-template-columns: 1fr;
+  }
+
+  .bmi-goal-form {
+    grid-template-columns: 1fr;
+  }
+
+  .bmi-dashboard-grid {
+    gap: 14px;
+  }
+
+  .bmi-data-card {
+    padding: 16px;
+  }
+
+  .bmi-data-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .bmi-chart-wrap {
+    height: 240px;
+  }
+}
+
+</style>
+
+
 </head>
 <body>
 
@@ -998,7 +1307,7 @@
 
           <div class="bmi-card">
             <h3>BMI Calculator</h3>
-            <form class="bmi-form" onsubmit="return false;">
+            <form class="bmi-form">
               <div class="form-group">
                 <label>Gender</label>
                 <div class="radio-group">
@@ -1040,6 +1349,438 @@
         </div>
       </div>
     </section>
+
+
+
+<!-- ==================== BMI HEALTH DASHBOARD ==================== -->
+<section id="bmi-dashboard" class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-tag">BMI Health Tracking</span>
+
+      <h2 class="section-title">
+        Your BMI Health Dashboard
+      </h2>
+
+      <p class="section-description">
+        Track your BMI, view your history, understand your healthy weight
+        range, manage your weight goal and monitor important notifications.
+      </p>
+    </div>
+
+
+    <!-- ==================== BMI SUMMARY ==================== -->
+
+    <div class="bmi-dashboard-grid">
+
+      <div class="bmi-data-card full-width">
+
+        <div class="bmi-data-card-header">
+          <div>
+            <h3>Current BMI</h3>
+            <p id="bmi-dashboard-current-message">
+              Loading your latest BMI...
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="bmi-dashboard-refresh"
+            class="btn btn-secondary">
+            <i class="fa-solid fa-rotate"></i>
+            Refresh
+          </button>
+        </div>
+
+
+        <div class="bmi-mini-grid">
+
+          <div class="bmi-mini-stat">
+            <span>Current BMI</span>
+            <strong id="bmi-dashboard-current-bmi">--</strong>
+          </div>
+
+          <div class="bmi-mini-stat">
+            <span>Category</span>
+            <strong id="bmi-dashboard-current-category">--</strong>
+          </div>
+
+          <div class="bmi-mini-stat">
+            <span>Current Weight</span>
+            <strong id="bmi-dashboard-current-weight">--</strong>
+          </div>
+
+          <div class="bmi-mini-stat">
+            <span>Trend</span>
+            <strong id="bmi-dashboard-trend">--</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================== BMI HISTORY ==================== -->
+
+      <div class="bmi-data-card full-width">
+
+        <div class="bmi-data-card-header">
+          <div>
+            <h3>
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              BMI History
+            </h3>
+
+            <p>
+              Your previous BMI records.
+            </p>
+          </div>
+        </div>
+
+
+        <div id="bmi-history-loading"
+             class="bmi-loading">
+          Loading BMI history...
+        </div>
+
+
+        <div id="bmi-history-empty"
+             class="bmi-empty"
+             style="display:none;">
+          No BMI history available yet.
+        </div>
+
+
+        <div id="bmi-history-error"
+             class="bmi-error"
+             style="display:none;">
+          Unable to load BMI history.
+        </div>
+
+
+        <div id="bmi-history-table-container"
+             class="bmi-table-wrap"
+             style="display:none;">
+
+          <table class="bmi-history-table">
+
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>BMI</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+
+            <tbody id="bmi-history-table-body">
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================== BMI GRAPH ==================== -->
+
+      <div class="bmi-data-card full-width">
+
+        <div class="bmi-data-card-header">
+
+          <div>
+            <h3>
+              <i class="fa-solid fa-chart-line"></i>
+              BMI Progress Graph
+            </h3>
+
+            <p>
+              Track how your BMI changes over time.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div id="bmi-graph-loading"
+             class="bmi-loading">
+          Loading BMI graph...
+        </div>
+
+
+        <div id="bmi-graph-empty"
+             class="bmi-empty"
+             style="display:none;">
+          Not enough BMI records to display the graph.
+        </div>
+
+
+        <div id="bmi-graph-error"
+             class="bmi-error"
+             style="display:none;">
+          Unable to load BMI graph.
+        </div>
+
+
+        <div id="bmi-chart-container"
+             class="bmi-chart-wrap"
+             style="display:none;">
+
+          <canvas id="bmiProgressCanvas"></canvas>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================== HEALTHY WEIGHT RANGE ==================== -->
+
+      <div class="bmi-data-card">
+
+        <div class="bmi-data-card-header">
+
+          <div>
+            <h3>
+              <i class="fa-solid fa-scale-balanced"></i>
+              Healthy Weight Range
+            </h3>
+
+            <p>
+              Estimated healthy weight range based on your height.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div id="bmi-range-loading"
+             class="bmi-loading">
+          Calculating healthy range...
+        </div>
+
+
+        <div id="bmi-range-content"
+             style="display:none;">
+
+          <div class="bmi-range-box">
+
+            <div class="bmi-range-value">
+              <span>Minimum</span>
+              <strong id="bmi-range-min">-- kg</strong>
+            </div>
+
+            <div class="bmi-range-value">
+              <span>Maximum</span>
+              <strong id="bmi-range-max">-- kg</strong>
+            </div>
+
+          </div>
+
+          <p id="bmi-range-message"
+             style="margin-top:15px;">
+          </p>
+
+        </div>
+
+
+        <div id="bmi-range-error"
+             class="bmi-error"
+             style="display:none;">
+          Unable to calculate healthy weight range.
+        </div>
+
+      </div>
+
+
+      <!-- ==================== WEIGHT GOAL ==================== -->
+
+      <div class="bmi-data-card">
+
+        <div class="bmi-data-card-header">
+
+          <div>
+            <h3>
+              <i class="fa-solid fa-bullseye"></i>
+              Weight Goal
+            </h3>
+
+            <p>
+              Set and track your target weight.
+            </p>
+          </div>
+
+        </div>
+
+
+        <form id="bmi-goal-form"
+              class="bmi-goal-form">
+
+          <div class="form-group">
+
+            <label for="bmi-target-weight">
+              Target Weight (kg)
+            </label>
+
+            <input
+              type="number"
+              id="bmi-target-weight"
+              min="1"
+              max="500"
+              step="0.1"
+              placeholder="e.g. 70">
+
+          </div>
+
+
+          <button
+            type="submit"
+            id="bmi-goal-button"
+            class="btn btn-primary">
+
+            <i class="fa-solid fa-check"></i>
+            Set Goal
+
+          </button>
+
+        </form>
+
+
+        <div id="bmi-goal-loading"
+             class="bmi-loading"
+             style="display:none;">
+          Loading goal...
+        </div>
+
+
+        <div id="bmi-goal-content"
+             class="bmi-goal-progress"
+             style="display:none;">
+
+          <div class="bmi-mini-grid">
+
+            <div class="bmi-mini-stat">
+              <span>Starting</span>
+              <strong id="bmi-goal-start">--</strong>
+            </div>
+
+            <div class="bmi-mini-stat">
+              <span>Target</span>
+              <strong id="bmi-goal-target">--</strong>
+            </div>
+
+            <div class="bmi-mini-stat">
+              <span>Current</span>
+              <strong id="bmi-goal-current">--</strong>
+            </div>
+
+            <div class="bmi-mini-stat">
+              <span>Status</span>
+              <strong id="bmi-goal-status">--</strong>
+            </div>
+
+          </div>
+
+
+          <div style="margin-top:18px;">
+
+            <div class="bmi-goal-meta">
+
+              <span>
+                Progress
+              </span>
+
+              <strong id="bmi-goal-percentage">
+                0%
+              </strong>
+
+            </div>
+
+
+            <div class="bmi-progress-track">
+
+              <div
+                id="bmi-goal-progress-bar"
+                class="bmi-progress-bar">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div id="bmi-goal-empty"
+             class="bmi-empty">
+          No weight goal has been set yet.
+        </div>
+
+
+        <div id="bmi-goal-error"
+             class="bmi-error"
+             style="display:none;">
+          Unable to load weight goal.
+        </div>
+
+      </div>
+
+
+      <!-- ==================== BMI NOTIFICATIONS ==================== -->
+
+      <div class="bmi-data-card full-width">
+
+        <div class="bmi-data-card-header">
+
+          <div>
+            <h3>
+              <i class="fa-solid fa-bell"></i>
+              BMI Notifications
+            </h3>
+
+            <p>
+              Important updates related to your BMI and health tracking.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div id="bmi-notifications-loading"
+             class="bmi-loading">
+          Loading notifications...
+        </div>
+
+
+        <div id="bmi-notifications-empty"
+             class="bmi-empty"
+             style="display:none;">
+          No BMI notifications available.
+        </div>
+
+
+        <div id="bmi-notifications-error"
+             class="bmi-error"
+             style="display:none;">
+          Unable to load notifications.
+        </div>
+
+
+        <div id="bmi-notification-list"
+             class="bmi-notification-list"
+             style="display:none;">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
 
     <!-- ==================== 12. BLOOD DONATION SECTION ==================== -->
     <section id="blood-donation" class="section">
@@ -1376,6 +2117,1660 @@
 
 
 <script src="../assets/js/nearby_hospitals.js"></script>
+<script src="../assets/js/bmi.js"></script>
+
+
+
+<script id="healthai-bmi-dashboard-script">
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================================================
+       BMI DASHBOARD
+       ========================================================= */
+
+    const userId = localStorage.getItem("healthAIUserId");
+
+    if (!userId) {
+
+        console.warn(
+            "HealthAI user ID not found in localStorage."
+        );
+
+        return;
+    }
+
+
+    /* =========================================================
+       HELPERS
+       ========================================================= */
+
+    function showElement(id) {
+
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.style.display = "";
+        }
+    }
+
+
+    function hideElement(id) {
+
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.style.display = "none";
+        }
+    }
+
+
+    function setText(id, value) {
+
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.textContent =
+                value !== null &&
+                value !== undefined &&
+                value !== ""
+                    ? value
+                    : "--";
+        }
+    }
+
+
+    function formatNumber(value) {
+
+        if (
+            value === null ||
+            value === undefined ||
+            value === ""
+        ) {
+            return "--";
+        }
+
+        const number = Number(value);
+
+        if (Number.isNaN(number)) {
+            return "--";
+        }
+
+        return number.toFixed(2);
+    }
+
+
+    function formatWeight(value) {
+
+        if (
+            value === null ||
+            value === undefined ||
+            value === ""
+        ) {
+            return "--";
+        }
+
+        const number = Number(value);
+
+        if (Number.isNaN(number)) {
+            return "--";
+        }
+
+        return number.toFixed(2) + " kg";
+    }
+
+
+    function formatCategory(category) {
+
+        if (!category) {
+            return "--";
+        }
+
+        const normalized =
+            String(category)
+                .trim()
+                .toUpperCase();
+
+        const categories = {
+
+            UNDERWEIGHT:
+                "Underweight",
+
+            HEALTHY_WEIGHT:
+                "Normal Weight",
+
+            NORMAL_WEIGHT:
+                "Normal Weight",
+
+            NORMAL:
+                "Normal Weight",
+
+            OVERWEIGHT:
+                "Overweight",
+
+            OBESITY:
+                "Obese",
+
+            OBESE:
+                "Obese"
+        };
+
+        return categories[normalized] ||
+               String(category).replace(/_/g, " ");
+    }
+
+
+    function formatDate(value) {
+
+        if (!value) {
+            return "--";
+        }
+
+        try {
+
+            const date = new Date(value);
+
+            if (Number.isNaN(date.getTime())) {
+                return value;
+            }
+
+            return date.toLocaleString();
+
+        } catch (error) {
+
+            return value;
+        }
+    }
+
+
+    /* =========================================================
+       API REQUEST
+       ========================================================= */
+
+    async function apiRequest(url, options = {}) {
+
+        const response =
+            await fetch(url, options);
+
+        let data = {};
+
+        try {
+            data = await response.json();
+        } catch (error) {
+            data = {};
+        }
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.message ||
+                "Request failed."
+            );
+        }
+
+        return data;
+    }
+
+
+    /* =========================================================
+       LOAD LATEST BMI
+       ========================================================= */
+
+    async function loadLatestBMI() {
+
+        try {
+
+            const data =
+                await apiRequest(
+                    `/api/bmi/latest/${userId}`
+                );
+
+
+            /*
+             * Backend response can directly contain
+             * bmi/category/weight.
+             */
+
+            const bmi =
+                data.bmi ??
+                data.currentBmi;
+
+            const category =
+                data.category ??
+                data.bmiCategory ??
+                data.currentCategory;
+
+            const weight =
+                data.weight ??
+                data.weightKg ??
+                data.currentWeightKg;
+
+
+            setText(
+                "bmi-dashboard-current-bmi",
+                formatNumber(bmi)
+            );
+
+
+            setText(
+                "bmi-dashboard-current-category",
+                formatCategory(category)
+            );
+
+
+            setText(
+                "bmi-dashboard-current-weight",
+                formatWeight(weight)
+            );
+
+
+            const trend =
+                data.trend ??
+                data.bmiTrend ??
+                data.status;
+
+
+            setText(
+                "bmi-dashboard-trend",
+                trend
+                    ? String(trend).replace(/_/g, " ")
+                    : "--"
+            );
+
+
+            const message =
+                data.message ||
+                data.disclaimer ||
+                "Latest BMI record loaded successfully.";
+
+
+            setText(
+                "bmi-dashboard-current-message",
+                message
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Latest BMI error:",
+                error
+            );
+
+            setText(
+                "bmi-dashboard-current-message",
+                "Unable to load latest BMI."
+            );
+        }
+    }
+
+
+    /* =========================================================
+       LOAD BMI HISTORY
+       ========================================================= */
+
+    async function loadBMIHistory() {
+
+        hideElement("bmi-history-empty");
+        hideElement("bmi-history-error");
+        hideElement("bmi-history-table-container");
+
+        showElement("bmi-history-loading");
+
+
+        try {
+
+            const data =
+                await apiRequest(
+                    `/api/bmi/history/${userId}`
+                );
+
+
+            hideElement("bmi-history-loading");
+
+
+            let history = [];
+
+
+            if (Array.isArray(data)) {
+
+                history = data;
+
+            } else if (Array.isArray(data.history)) {
+
+                history = data.history;
+
+            } else if (Array.isArray(data.records)) {
+
+                history = data.records;
+
+            } else if (Array.isArray(data.data)) {
+
+                history = data.data;
+            }
+
+
+            if (!history.length) {
+
+                showElement(
+                    "bmi-history-empty"
+                );
+
+                return;
+            }
+
+
+            const tbody =
+                document.getElementById(
+                    "bmi-history-table-body"
+                );
+
+
+            if (!tbody) {
+                return;
+            }
+
+
+            tbody.innerHTML = "";
+
+
+            history.forEach(record => {
+
+                const row =
+                    document.createElement("tr");
+
+
+                const date =
+                    record.calculatedAt ??
+                    record.date ??
+                    record.createdAt;
+
+
+                const height =
+                    record.heightCm ??
+                    record.height;
+
+
+                const weight =
+                    record.weightKg ??
+                    record.weight;
+
+
+                const bmi =
+                    record.bmi;
+
+
+                const category =
+                    record.bmiCategory ??
+                    record.category;
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${formatDate(date)}
+                    </td>
+
+                    <td>
+                        ${height != null
+                            ? Number(height).toFixed(2) + " cm"
+                            : "--"}
+                    </td>
+
+                    <td>
+                        ${formatWeight(weight)}
+                    </td>
+
+                    <td>
+                        <strong>
+                            ${formatNumber(bmi)}
+                        </strong>
+                    </td>
+
+                    <td>
+                        <span class="bmi-category-badge">
+                            ${formatCategory(category)}
+                        </span>
+                    </td>
+
+                `;
+
+
+                tbody.appendChild(row);
+
+            });
+
+
+            showElement(
+                "bmi-history-table-container"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "BMI history error:",
+                error
+            );
+
+            hideElement(
+                "bmi-history-loading"
+            );
+
+            showElement(
+                "bmi-history-error"
+            );
+        }
+    }
+
+
+    /* =========================================================
+       LOAD HEALTHY WEIGHT RANGE
+       ========================================================= */
+
+    async function loadHealthyWeightRange() {
+
+        hideElement("bmi-range-error");
+        hideElement("bmi-range-content");
+
+        showElement("bmi-range-loading");
+
+
+        try {
+
+            const data =
+                await apiRequest(
+                    `/api/bmi/healthy-weight-range/${userId}`
+                );
+
+
+            hideElement("bmi-range-loading");
+
+
+            const minimum =
+                data.minWeightKg ??
+                data.minimumWeightKg ??
+                data.minWeight ??
+                data.minimum;
+
+
+            const maximum =
+                data.maxWeightKg ??
+                data.maximumWeightKg ??
+                data.maxWeight ??
+                data.maximum;
+
+
+            if (
+                minimum === undefined &&
+                maximum === undefined
+            ) {
+
+                showElement(
+                    "bmi-range-error"
+                );
+
+                return;
+            }
+
+
+            setText(
+                "bmi-range-min",
+                minimum != null
+                    ? formatWeight(minimum)
+                    : "--"
+            );
+
+
+            setText(
+                "bmi-range-max",
+                maximum != null
+                    ? formatWeight(maximum)
+                    : "--"
+            );
+
+
+            setText(
+                "bmi-range-message",
+                data.message ||
+                "This range is calculated from your height using the BMI healthy range."
+            );
+
+
+            showElement(
+                "bmi-range-content"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Healthy range error:",
+                error
+            );
+
+            hideElement(
+                "bmi-range-loading"
+            );
+
+            showElement(
+                "bmi-range-error"
+            );
+        }
+    }
+
+
+    /* =========================================================
+       LOAD BMI GOAL
+       ========================================================= */
+
+    async function loadBMIGoal() {
+
+        hideElement("bmi-goal-error");
+
+        hideElement("bmi-goal-content");
+
+        showElement("bmi-goal-loading");
+
+
+        try {
+
+            const data =
+                await apiRequest(
+                    `/api/bmi/goal/${userId}`
+                );
+
+
+            hideElement(
+                "bmi-goal-loading"
+            );
+
+
+            /*
+             * Some APIs return:
+             * { success:false, ... }
+             * when no goal exists.
+             */
+
+            if (
+                data.success === false &&
+                !data.goalId
+            ) {
+
+                showElement(
+                    "bmi-goal-empty"
+                );
+
+                return;
+            }
+
+
+            if (!data.goalId) {
+
+                showElement(
+                    "bmi-goal-empty"
+                );
+
+                return;
+            }
+
+
+            hideElement(
+                "bmi-goal-empty"
+            );
+
+
+            const starting =
+                data.startingWeightKg;
+
+            const target =
+                data.targetWeightKg;
+
+            const current =
+                data.currentWeightKg;
+
+            const progress =
+                data.progressPercentage;
+
+            const status =
+                data.status;
+
+
+            setText(
+                "bmi-goal-start",
+                formatWeight(starting)
+            );
+
+
+            setText(
+                "bmi-goal-target",
+                formatWeight(target)
+            );
+
+
+            setText(
+                "bmi-goal-current",
+                formatWeight(current)
+            );
+
+
+            setText(
+                "bmi-goal-status",
+                status
+                    ? String(status).replace(/_/g, " ")
+                    : "--"
+            );
+
+
+            const percentage =
+                progress != null
+                    ? Math.max(
+                        0,
+                        Math.min(
+                            100,
+                            Number(progress)
+                        )
+                    )
+                    : 0;
+
+
+            setText(
+                "bmi-goal-percentage",
+                percentage.toFixed(2) + "%"
+            );
+
+
+            const progressBar =
+                document.getElementById(
+                    "bmi-goal-progress-bar"
+                );
+
+
+            if (progressBar) {
+
+                progressBar.style.width =
+                    percentage + "%";
+            }
+
+
+            const targetInput =
+                document.getElementById(
+                    "bmi-target-weight"
+                );
+
+
+            if (
+                targetInput &&
+                target != null
+            ) {
+
+                targetInput.value =
+                    Number(target).toFixed(2);
+            }
+
+
+            showElement(
+                "bmi-goal-content"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "BMI goal error:",
+                error
+            );
+
+            hideElement(
+                "bmi-goal-loading"
+            );
+
+            hideElement(
+                "bmi-goal-empty"
+            );
+
+            showElement(
+                "bmi-goal-error"
+            );
+        }
+    }
+
+
+    /* =========================================================
+       SAVE / UPDATE BMI GOAL
+       ========================================================= */
+
+    const goalForm =
+        document.getElementById(
+            "bmi-goal-form"
+        );
+
+
+    if (goalForm) {
+
+        goalForm.addEventListener(
+            "submit",
+            async event => {
+
+                event.preventDefault();
+
+
+                const targetInput =
+                    document.getElementById(
+                        "bmi-target-weight"
+                    );
+
+
+                const button =
+                    document.getElementById(
+                        "bmi-goal-button"
+                    );
+
+
+                const targetWeight =
+                    Number(
+                        targetInput.value
+                    );
+
+
+                if (
+                    !targetWeight ||
+                    targetWeight <= 0
+                ) {
+
+                    alert(
+                        "Please enter a valid target weight."
+                    );
+
+                    targetInput.focus();
+
+                    return;
+                }
+
+
+                const oldButtonText =
+                    button.innerHTML;
+
+
+                button.disabled = true;
+
+                button.innerHTML =
+                    "Saving...";
+
+
+                try {
+
+                    await apiRequest(
+                        "/api/bmi/goal",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                userId:
+                                    Number(userId),
+
+                                targetWeightKg:
+                                    targetWeight
+                            })
+                        }
+                    );
+
+
+                    alert(
+                        "Weight goal saved successfully."
+                    );
+
+
+                    await loadBMIGoal();
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Save BMI goal error:",
+                        error
+                    );
+
+                    alert(
+                        error.message ||
+                        "Unable to save weight goal."
+                    );
+
+
+                } finally {
+
+                    button.disabled = false;
+
+                    button.innerHTML =
+                        oldButtonText;
+                }
+            }
+        );
+    }
+
+
+    /* =========================================================
+       LOAD NOTIFICATIONS
+       ========================================================= */
+
+    async function loadNotifications() {
+
+        hideElement(
+            "bmi-notifications-empty"
+        );
+
+        hideElement(
+            "bmi-notifications-error"
+        );
+
+        hideElement(
+            "bmi-notification-list"
+        );
+
+        showElement(
+            "bmi-notifications-loading"
+        );
+
+
+        try {
+
+            const data =
+                await apiRequest(
+                    `/api/bmi/notifications/${userId}`
+                );
+
+
+            hideElement(
+                "bmi-notifications-loading"
+            );
+
+
+            let notifications = [];
+
+
+            if (Array.isArray(data)) {
+
+                notifications = data;
+
+            } else if (
+                Array.isArray(data.notifications)
+            ) {
+
+                notifications =
+                    data.notifications;
+
+            } else if (
+                Array.isArray(data.data)
+            ) {
+
+                notifications =
+                    data.data;
+            }
+
+
+            if (!notifications.length) {
+
+                showElement(
+                    "bmi-notifications-empty"
+                );
+
+                return;
+            }
+
+
+            const list =
+                document.getElementById(
+                    "bmi-notification-list"
+                );
+
+
+            if (!list) {
+                return;
+            }
+
+
+            list.innerHTML = "";
+
+
+            notifications.forEach(
+                notification => {
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    item.className =
+                        "bmi-notification";
+
+
+                    const title =
+                        notification.title ||
+                        "BMI Notification";
+
+
+                    const message =
+                        notification.message ||
+                        "";
+
+
+                    const createdAt =
+                        notification.createdAt ||
+                        notification.date;
+
+
+                    item.innerHTML = `
+
+                        <div class="bmi-notification-icon">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <div class="bmi-notification-content">
+
+                            <strong>
+                                ${escapeHTML(title)}
+                            </strong>
+
+                            <p>
+                                ${escapeHTML(message)}
+                            </p>
+
+                            <small>
+                                ${escapeHTML(
+                                    formatDate(createdAt)
+                                )}
+                            </small>
+
+                        </div>
+
+                    `;
+
+
+                    list.appendChild(item);
+
+                }
+            );
+
+
+            showElement(
+                "bmi-notification-list"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "BMI notifications error:",
+                error
+            );
+
+            hideElement(
+                "bmi-notifications-loading"
+            );
+
+            showElement(
+                "bmi-notifications-error"
+            );
+        }
+    }
+
+
+    /* =========================================================
+       HTML ESCAPE
+       ========================================================= */
+
+    function escapeHTML(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+
+    /* =========================================================
+       LOAD BMI GRAPH
+       ========================================================= */
+
+    async function loadBMIChart() {
+
+        hideElement(
+            "bmi-graph-empty"
+        );
+
+        hideElement(
+            "bmi-graph-error"
+        );
+
+        hideElement(
+            "bmi-chart-container"
+        );
+
+        showElement(
+            "bmi-graph-loading"
+        );
+
+
+        try {
+
+            const data =
+                await apiRequest(
+                    `/api/bmi/history/${userId}/graph`
+                );
+
+
+            hideElement(
+                "bmi-graph-loading"
+            );
+
+
+            const labels =
+                Array.isArray(data.labels)
+                    ? data.labels
+                    : [];
+
+
+            const bmiValues =
+                Array.isArray(data.bmiValues)
+                    ? data.bmiValues
+                    : [];
+
+
+            if (
+                !labels.length ||
+                !bmiValues.length
+            ) {
+
+                showElement(
+                    "bmi-graph-empty"
+                );
+
+                return;
+            }
+
+
+            showElement(
+                "bmi-chart-container"
+            );
+
+
+            drawBMIChart(
+                labels,
+                bmiValues
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "BMI graph error:",
+                error
+            );
+
+            hideElement(
+                "bmi-graph-loading"
+            );
+
+            showElement(
+                "bmi-graph-error"
+            );
+        }
+    }
+
+
+    /* =========================================================
+       DRAW BMI GRAPH
+       ========================================================= */
+
+    function drawBMIChart(
+        labels,
+        values
+    ) {
+
+        const canvas =
+            document.getElementById(
+                "bmiProgressCanvas"
+            );
+
+
+        if (!canvas) {
+            return;
+        }
+
+
+        const container =
+            document.getElementById(
+                "bmi-chart-container"
+            );
+
+
+        const width =
+            container.clientWidth;
+
+
+        const height =
+            container.clientHeight;
+
+
+        if (
+            !width ||
+            !height
+        ) {
+
+            return;
+        }
+
+
+        const dpr =
+            window.devicePixelRatio || 1;
+
+
+        canvas.width =
+            width * dpr;
+
+
+        canvas.height =
+            height * dpr;
+
+
+        canvas.style.width =
+            width + "px";
+
+
+        canvas.style.height =
+            height + "px";
+
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        ctx.scale(
+            dpr,
+            dpr
+        );
+
+
+        ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        const numericValues =
+            values.map(Number)
+                .filter(value =>
+                    Number.isFinite(value)
+                );
+
+
+        if (!numericValues.length) {
+            return;
+        }
+
+
+        const minValue =
+            Math.min(
+                ...numericValues
+            );
+
+
+        const maxValue =
+            Math.max(
+                ...numericValues
+            );
+
+
+        const paddingLeft = 45;
+
+        const paddingRight = 20;
+
+        const paddingTop = 25;
+
+        const paddingBottom = 45;
+
+
+        const chartWidth =
+            width -
+            paddingLeft -
+            paddingRight;
+
+
+        const chartHeight =
+            height -
+            paddingTop -
+            paddingBottom;
+
+
+        let minY =
+            Math.floor(
+                minValue - 2
+            );
+
+
+        let maxY =
+            Math.ceil(
+                maxValue + 2
+            );
+
+
+        if (minY < 0) {
+            minY = 0;
+        }
+
+
+        if (
+            maxY -
+            minY <
+            5
+        ) {
+
+            maxY =
+                minY + 5;
+        }
+
+
+        /* GRID */
+
+        ctx.strokeStyle =
+            "#e5e7eb";
+
+        ctx.lineWidth = 1;
+
+
+        for (
+            let i = 0;
+            i <= 4;
+            i++
+        ) {
+
+            const y =
+                paddingTop +
+                (
+                    chartHeight *
+                    i /
+                    4
+                );
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                paddingLeft,
+                y
+            );
+
+            ctx.lineTo(
+                width -
+                paddingRight,
+                y
+            );
+
+            ctx.stroke();
+
+
+            const value =
+                maxY -
+                (
+                    (maxY - minY) *
+                    i /
+                    4
+                );
+
+
+            ctx.fillStyle =
+                "#64748b";
+
+            ctx.font =
+                "12px Arial";
+
+            ctx.textAlign =
+                "right";
+
+            ctx.fillText(
+                value.toFixed(1),
+                paddingLeft - 8,
+                y + 4
+            );
+        }
+
+
+        /* AXIS */
+
+        ctx.strokeStyle =
+            "#94a3b8";
+
+        ctx.lineWidth = 1;
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            paddingLeft,
+            paddingTop
+        );
+
+        ctx.lineTo(
+            paddingLeft,
+            height -
+            paddingBottom
+        );
+
+        ctx.lineTo(
+            width -
+            paddingRight,
+            height -
+            paddingBottom
+        );
+
+        ctx.stroke();
+
+
+        /* LINE */
+
+        ctx.beginPath();
+
+
+        numericValues.forEach(
+            (value, index) => {
+
+                const x =
+                    numericValues.length === 1
+
+                        ? paddingLeft +
+                          chartWidth / 2
+
+                        : paddingLeft +
+                          (
+                            index /
+                            (
+                                numericValues.length -
+                                1
+                            )
+                          ) *
+                          chartWidth;
+
+
+                const y =
+                    paddingTop +
+                    (
+                        1 -
+                        (
+                            (value - minY) /
+                            (maxY - minY)
+                        )
+                    ) *
+                    chartHeight;
+
+
+                if (index === 0) {
+
+                    ctx.moveTo(
+                        x,
+                        y
+                    );
+
+                } else {
+
+                    ctx.lineTo(
+                        x,
+                        y
+                    );
+                }
+
+            }
+        );
+
+
+        ctx.strokeStyle =
+            "#0f766e";
+
+        ctx.lineWidth = 3;
+
+        ctx.stroke();
+
+
+        /* POINTS */
+
+        numericValues.forEach(
+            (value, index) => {
+
+                const x =
+                    numericValues.length === 1
+
+                        ? paddingLeft +
+                          chartWidth / 2
+
+                        : paddingLeft +
+                          (
+                            index /
+                            (
+                                numericValues.length -
+                                1
+                            )
+                          ) *
+                          chartWidth;
+
+
+                const y =
+                    paddingTop +
+                    (
+                        1 -
+                        (
+                            (value - minY) /
+                            (maxY - minY)
+                        )
+                    ) *
+                    chartHeight;
+
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    x,
+                    y,
+                    5,
+                    0,
+                    Math.PI * 2
+                );
+
+
+                ctx.fillStyle =
+                    "#ffffff";
+
+                ctx.fill();
+
+
+                ctx.strokeStyle =
+                    "#0f766e";
+
+                ctx.lineWidth = 3;
+
+                ctx.stroke();
+
+
+                ctx.fillStyle =
+                    "#334155";
+
+                ctx.font =
+                    "12px Arial";
+
+                ctx.textAlign =
+                    "center";
+
+
+                ctx.fillText(
+                    value.toFixed(2),
+                    x,
+                    y - 12
+                );
+
+            }
+        );
+
+
+        /* X LABELS */
+
+        ctx.fillStyle =
+            "#64748b";
+
+        ctx.font =
+            "11px Arial";
+
+        ctx.textAlign =
+            "center";
+
+
+        numericValues.forEach(
+            (value, index) => {
+
+                const x =
+                    numericValues.length === 1
+
+                        ? paddingLeft +
+                          chartWidth / 2
+
+                        : paddingLeft +
+                          (
+                            index /
+                            (
+                                numericValues.length -
+                                1
+                            )
+                          ) *
+                          chartWidth;
+
+
+                const originalLabel =
+                    labels[index] ||
+                    "";
+
+
+                let label =
+                    originalLabel;
+
+
+                if (
+                    String(label).length >
+                    10
+                ) {
+
+                    label =
+                        String(label)
+                            .substring(
+                                0,
+                                10
+                            );
+                }
+
+
+                ctx.fillText(
+                    label,
+                    x,
+                    height - 18
+                );
+
+            }
+        );
+    }
+
+
+    /* =========================================================
+       REFRESH BUTTON
+       ========================================================= */
+
+    const refreshButton =
+        document.getElementById(
+            "bmi-dashboard-refresh"
+        );
+
+
+    if (refreshButton) {
+
+        refreshButton.addEventListener(
+            "click",
+            async () => {
+
+                refreshButton.disabled =
+                    true;
+
+
+                const oldText =
+                    refreshButton.innerHTML;
+
+
+                refreshButton.innerHTML =
+                    '<i class="fa-solid fa-spinner fa-spin"></i> Refreshing...';
+
+
+                try {
+
+                    await Promise.all([
+                        loadLatestBMI(),
+                        loadBMIHistory(),
+                        loadBMIChart(),
+                        loadHealthyWeightRange(),
+                        loadBMIGoal(),
+                        loadNotifications()
+                    ]);
+
+                } finally {
+
+                    refreshButton.disabled =
+                        false;
+
+                    refreshButton.innerHTML =
+                        oldText;
+                }
+            }
+        );
+    }
+
+
+    /* =========================================================
+       INITIAL LOAD
+       ========================================================= */
+
+    loadLatestBMI();
+
+    loadBMIHistory();
+
+    loadBMIChart();
+
+    loadHealthyWeightRange();
+
+    loadBMIGoal();
+
+    loadNotifications();
+
+
+    /* =========================================================
+       REDRAW GRAPH ON WINDOW RESIZE
+       ========================================================= */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            loadBMIChart();
+
+        }
+    );
+
+});
+
+</script>
 
 
 </body>
