@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HealthAI - Government Health Schemes</title>
+
+    <link rel="stylesheet" href="../assets/css/government_schemes.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar-header">
+    <nav class="navbar">
+
+        <a href="user_dashboard.html" class="logo">
+            <span class="logo-icon">❤</span>
+            <span>Health<strong>AI</strong></span>
+        </a>
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="user_dashboard.html">Home</a>
+            </li>
+
+            <li>
+                <a href="ai_health.html">
+                    AI Health <span>⌄</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="disease.html">Diseases</a>
+            </li>
+
+            <li>
+                <a href="user_dashboard.html#wellness">
+                    Health & Wellness <span>⌄</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="user_dashboard.html#services">
+                    Services <span>⌄</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="government_schemes.html">
+                    Resources <span>⌄</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="nav-actions">
+            <button class="search-icon">⌕</button>
+
+            <button class="login-btn"
+                    onclick="window.location.href='login.html'">
+                Login
+            </button>
+
+            <button class="signup-btn"
+                    onclick="window.location.href='signup.html'">
+                Signup
+            </button>
+        </div>
+
+    </nav>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            🏛 Government Schemes
+        </div>
+
+        <h1>
+            Government Health <span>Schemes</span>
+        </h1>
+
+        <p>
+            Find and access Central and State Government health schemes
+            for a healthier tomorrow.
+        </p>
+
+        <div class="hero-features">
+
+            <div class="hero-feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <strong>Trusted</strong>
+                    <small>Official Information</small>
+                </div>
+            </div>
+
+            <div class="hero-feature">
+                <div class="feature-icon">👥</div>
+                <div>
+                    <strong>Central & State</strong>
+                    <small>Government Schemes</small>
+                </div>
+            </div>
+
+            <div class="hero-feature">
+                <div class="feature-icon">▣</div>
+                <div>
+                    <strong>Easy Access</strong>
+                    <small>Information & Application</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-illustration">
+
+        <div class="india-symbol">🇮🇳</div>
+
+        <div class="government-building">
+
+            <div class="building-top">
+                ♥
+            </div>
+
+            <div class="dome"></div>
+
+            <div class="columns">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="building-base"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEARCH + FILTER ================= -->
+
+<section class="tools-section">
+
+    <div class="search-box">
+
+        <div class="search-input">
+            <span>⌕</span>
+
+            <input
+                type="text"
+                placeholder="Search for schemes (e.g. Ayushman, maternal health...)"
+            >
+        </div>
+
+        <button class="search-btn">
+            Search
+        </button>
+
+    </div>
+
+
+    <div class="filters">
+
+        <div class="filter-group">
+            <label for="categorySelect">Category</label>
+
+            <select id="categorySelect">
+                <option value="All Categories">All Categories</option>
+            </select>
+        </div>
+
+
+        <div class="filter-group">
+            <label for="schemeTypeSelect">Scheme Type</label>
+
+            <select id="schemeTypeSelect">
+                <option value="All Schemes">All Schemes</option>
+            </select>
+        </div>
+
+
+        <div class="filter-group">
+            <label for="stateSelect">State</label>
+
+            <select id="stateSelect">
+                <option value="All States">All States</option>
+            </select>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories-section">
+
+    <h2>Browse by Category</h2>
+
+    <div class="category-list" id="categoryList">
+
+        <button class="category active" data-category="All Schemes">
+            ▦
+            <span>All Schemes</span>
+        </button>
+
+        <button class="category" data-category="Health Insurance">
+            🛡
+            <span>Health Insurance</span>
+        </button>
+
+        <button class="category" data-category="Women & Maternal Health">
+            👩
+            <span>Women & Maternal Health</span>
+        </button>
+
+        <button class="category" data-category="Child Health">
+            👶
+            <span>Child Health</span>
+        </button>
+
+        <button class="category" data-category="Senior Citizens">
+            👴
+            <span>Senior Citizens</span>
+        </button>
+
+        <button class="category" data-category="Treatment & Medical Assistance">
+            ✚
+            <span>Treatment & Medical Assistance</span>
+        </button>
+
+        <button class="category" data-category="Immunization">
+            💉
+            <span>Immunization</span>
+        </button>
+
+        <button class="category" data-category="Disease Control">
+            🦠
+            <span>Disease Control</span>
+        </button>
+
+        <button class="category" data-category="Mental Health">
+            🧠
+            <span>Mental Health</span>
+        </button>
+
+        <button class="category" data-category="Disability Health Support">
+            🦼
+            <span>Disability Health Support</span>
+        </button>
+
+        <button class="category" data-category="Public Health">
+            🏛
+            <span>Public Health</span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= POPULAR SCHEMES ================= -->
+
+<section class="schemes-section">
+
+    <div class="section-heading">
+
+        <div>
+            <h2>Popular Schemes</h2>
+            <p>Explore important government health schemes <span id="schemeCounter" class="scheme-counter"></span></p>
+        </div>
+
+       <a href="#" id="viewAllSchemes">
+    View All Schemes →
+</a>
+
+    </div>
+
+
+   <div id="schemeGrid" class="scheme-grid">
+
+    <div class="loading">
+        Loading government schemes...
+    </div>
+
+</div>
+
+<div id="loadMoreContainer" class="load-more-container" style="display: none;">
+    <button id="loadMoreBtn" class="load-more-btn">
+        Load More Schemes ↓
+    </button>
+</div>
+
+
+
+
+</section>
+
+
+<!-- ================= SCHEME DETAIL ================= -->
+
+
+
+
+<!-- ================= DISCLAIMER ================= -->
+
+<section class="disclaimer">
+
+    <span>ⓘ</span>
+
+    <p>
+        Scheme eligibility, benefits, documents and application
+        procedures may vary. Please verify the latest information
+        from the official government source before applying.
+    </p>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div>
+            <h3>Health<span>AI</span></h3>
+
+            <p>
+                Your trusted digital healthcare companion.
+            </p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="user_dashboard.html">Home</a>
+            <a href="ai_health.html">AI Health</a>
+            <a href="disease.html">Diseases</a>
+        </div>
+
+        <div>
+            <h4>Resources</h4>
+            <a href="government_schemes.html">
+                Government Schemes
+            </a>
+
+            <a href="#">
+                Offline Resources
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 HealthAI. All rights reserved.
+    </div>
+
+</footer>
+
+<!-- ================= SCHEME DETAILS MODAL ================= -->
+
+<div id="schemeModal" class="scheme-modal">
+
+    <div class="scheme-modal-content">
+
+        <button id="closeSchemeModal" class="close-modal">
+            ×
+        </button>
+
+        <div id="schemeModalBody">
+            <!-- Scheme details will appear here -->
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../assets/js/government_schemes.js"></script>
+</body>
+</html>
